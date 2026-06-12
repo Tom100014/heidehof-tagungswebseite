@@ -32,8 +32,8 @@ const queryClient = new QueryClient({
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <ThemeProvider>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>        <
+                                                                   ThemeProvider>
           <LanguageProvider>
             <SafePWAProvider>
               <ConfirmProvider>
