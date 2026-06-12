@@ -62,7 +62,7 @@ export const SiteFooter = () => {
       <div className="md:hidden px-6 pt-14 pb-8 space-y-10">
         <div className="text-center space-y-5">
           <img
-            src="/heidehof/logo-white.svg"
+            src={`${import.meta.env.BASE_URL}heidehof/logo-white.svg`}
             alt="Hotel Der Heidehof"
             className="h-14 w-auto mx-auto"
             loading="lazy"
@@ -150,7 +150,7 @@ export const SiteFooter = () => {
           {/* Brand */}
           <div className="col-span-3 space-y-6">
             <img
-              src="/heidehof/logo-white.svg"
+              src={`${import.meta.env.BASE_URL}heidehof/logo-white.svg`}
               alt="Hotel Der Heidehof"
               className="h-14 w-auto object-contain"
               loading="lazy"
