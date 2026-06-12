@@ -1,0 +1,159 @@
+/* Optimized Blur Effects - Performance & Browser Compatibility */
+
+/* CSS Custom Properties for Consistent Blur Values */
+:root {
+  --blur-light: 4px;
+  --blur-medium: 6px;
+  --blur-heavy: 8px;
+  --blur-subtle: 2px;
+}
+
+/* Optimized Blur Classes */
+.blur-light {
+  backdrop-filter: blur(var(--blur-light));
+  -webkit-backdrop-filter: blur(var(--blur-light));
+  will-change: backdrop-filter;
+}
+
+.blur-medium {
+  backdrop-filter: blur(var(--blur-medium));
+  -webkit-backdrop-filter: blur(var(--blur-medium));
+  will-change: backdrop-filter;
+}
+
+.blur-heavy {
+  backdrop-filter: blur(var(--blur-heavy));
+  -webkit-backdrop-filter: blur(var(--blur-heavy));
+  will-change: backdrop-filter;
+}
+
+.blur-subtle {
+  backdrop-filter: blur(var(--blur-subtle));
+  -webkit-backdrop-filter: blur(var(--blur-subtle));
+  will-change: backdrop-filter;
+}
+
+/* Performance-First Blur Variants */
+.blur-performance {
+  backdrop-filter: blur(var(--blur-medium)) saturate(120%);
+  -webkit-backdrop-filter: blur(var(--blur-medium)) saturate(120%);
+  will-change: backdrop-filter;
+}
+
+/* Hover-Only Blur for Better Performance */
+.blur-on-hover {
+  transition: backdrop-filter 0.3s ease;
+}
+
+.blur-on-hover:hover {
+  backdrop-filter: blur(var(--blur-medium));
+  -webkit-backdrop-filter: blur(var(--blur-medium));
+}
+
+/* Mobile-Optimized Blur (DISABLED for Performance) */
+@media (max-width: 768px) {
+  /* Completely disable blur on mobile for critical performance boost */
+  .blur-light,
+  .blur-medium, 
+  .blur-heavy,
+  .blur-subtle,
+  .blur-performance,
+  .blur-on-hover,
+  .blur-on-hover:hover {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(0, 0, 0, 0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+}
+
+/* Low-End Device Optimization */
+@media (max-width: 480px) {
+  :root {
+    --blur-light: 2px;
+    --blur-medium: 3px;
+    --blur-heavy: 4px;
+    --blur-subtle: 1px;
+  }
+}
+
+/* Reduce Motion Preference - Disable Blur for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .blur-light,
+  .blur-medium,
+  .blur-heavy,
+  .blur-subtle,
+  .blur-performance,
+  .blur-on-hover,
+  .blur-on-hover:hover {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .blur-light,
+  .blur-medium,
+  .blur-heavy,
+  .blur-subtle,
+  .blur-performance {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Fallback for Browsers Without Backdrop-Filter Support */
+@supports not (backdrop-filter: blur(1px)) {
+  .blur-light,
+  .blur-medium,
+  .blur-heavy,
+  .blur-subtle,
+  .blur-performance,
+  .blur-on-hover:hover {
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Performance Optimizations */
+.blur-gpu-optimized {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Conditional Blur Classes for Better Performance */
+.blur-conditional {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  transition: backdrop-filter 0.2s ease;
+}
+
+.blur-conditional.active {
+  backdrop-filter: blur(var(--blur-medium));
+  -webkit-backdrop-filter: blur(var(--blur-medium));
+}
+
+/* Glass Effect Combinations with Optimized Blur */
+.glass-optimized {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(var(--blur-medium));
+  -webkit-backdrop-filter: blur(var(--blur-medium));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  will-change: transform;
+}
+
+.glass-dark-optimized {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(var(--blur-medium));
+  -webkit-backdrop-filter: blur(var(--blur-medium));
+  border: 1px solid rgba(192, 160, 128, 0.2);
+  border-radius: 16px;
+  will-change: transform;
+}

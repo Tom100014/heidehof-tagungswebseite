@@ -1,0 +1,162 @@
+/* Component styles */
+.btn-hover {
+  @apply transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-elegant;
+}
+
+.btn-gold {
+  @apply bg-gold hover:bg-gold-dark text-background shadow-gold transition-colors duration-300;
+}
+
+.scale-115 {
+  transform: scale(1.05);
+}
+
+.card-shadow {
+  @apply shadow-elegant;
+}
+
+.glass {
+  background-color: rgba(26, 26, 26, 0.85);
+  border: 1px solid rgba(192, 160, 128, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.shimmer {
+  @apply relative overflow-hidden;
+}
+
+.shimmer::before {
+  @apply absolute top-0 left-0 right-0 bottom-0 -translate-x-full;
+  background: linear-gradient(90deg, transparent, rgba(192, 160, 128, 0.1), transparent);
+  animation: shimmer 2s infinite linear;
+  content: '';
+}
+
+.beauty-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.beauty-glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%);
+  animation: pulse 3s infinite ease-in-out;
+}
+
+/* Dark mode specific styles */
+.dark {
+  /* Ensure all elements use the appropriate dark mode colors */
+  --bg-color: hsl(var(--background));
+  --text-color: hsl(var(--foreground));
+  --card-bg: hsl(var(--card));
+  --card-text: hsl(var(--card-foreground));
+}
+
+/* Card and container styles */
+.card {
+  @apply rounded-md;
+}
+
+.gold-card {
+  background-color: #1a1a1a;
+  @apply border border-gold/20 shadow-md rounded-lg overflow-hidden;
+}
+
+.gold-card:hover {
+  @apply border-gold/40 shadow-gold/15;
+}
+
+.luxury-card {
+  background-color: #1a1a1a;
+  @apply p-4 rounded-lg border border-gold/10 shadow-elegant hover:shadow-gold hover:border-gold/20 transition-all duration-300;
+}
+
+.content-card {
+  background-color: #1a1a1a;
+  @apply rounded-md shadow-elegant border border-border/10 hover:shadow-gold transition-all duration-300;
+}
+
+/* Form related styles */
+.input-group {
+  @apply space-y-1;
+}
+
+.form-label {
+  @apply text-xs font-medium;
+}
+
+.form-control {
+  @apply rounded-md text-sm;
+}
+
+/* Gold styled elements */
+.gold-accent {
+  @apply border-primary/20 hover:border-primary/30 transition-colors duration-300;
+}
+
+.gold-text {
+  @apply text-primary;
+}
+
+.gold-border {
+  @apply border border-primary/10 hover:border-primary/20 transition-all duration-300;
+}
+
+.gold-glow {
+  filter: drop-shadow(0 0 4px rgba(192, 160, 128, 0.3));
+}
+
+.text-shadow {
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Video container */
+.video-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.video-container iframe,
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Glass effect - improved readability */
+.glass {
+  background-color: rgba(26, 26, 26, 0.85);
+  border: 1px solid rgba(192, 160, 128, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+/* Gradient effects */
+.gradient-mask {
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1.0) 80%, transparent 100%);
+}
+
+/* Ensure interface elements use dark theme correctly */
+.dark-theme-card {
+  background-color: #1a1a1a;
+  color: #f9f9f9;
+  @apply border-gold/20;
+}
+
+/* Important fix for welcome page - force dark background */
+.welcome-page {
+  background-color: #171717 !important;
+}
+
+/* Safari-specific fix for background colors */
+@supports (-webkit-overflow-scrolling: touch) {
+  body, .bg-background {
+    background-color: #171717 !important; /* Force dark background on iOS */
+  }
+}
+

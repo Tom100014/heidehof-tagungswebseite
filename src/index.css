@@ -1,0 +1,1114 @@
+/* Self-hosted fonts for better performance */
+@import url('/fonts/inter.css');
+
+/* Optimized CSS imports - Critical styles first */
+@import "./styles/main.css";
+@import "./styles/optimized-blur-effects.css";
+@import "./styles/premium-ingolstadt.css";
+
+/* Mobile Master - Consolidated Mobile & PWA Styles */
+@import "./styles/mobile-master.css";
+
+/* Non-critical styles - loaded after critical */  
+@import "./styles/blog-cta.css";
+@import "./styles/professional-forms.css";
+@import "./styles/navigation.css";
+@import "./styles/admin-dashboard.css";
+@import "./styles/admin-luxe-flat.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Prevent iOS Safari from auto-zooming on input focus without disabling user-scaling
+   (WCAG 1.4.4 compliant — replaces the previous viewport meta override hack). */
+@layer base {
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+/* Professional gradient animation for service buttons */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulse-glow {
+  0% { 
+    box-shadow: 0 20px 60px -12px hsla(220, 90%, 50%, 0.5), 
+                inset 0 3px 0 rgba(255, 255, 255, 0.2), 
+                0 0 0 2px hsla(220, 90%, 50%, 0.3), 
+                0 8px 32px -8px hsla(220, 90%, 30%, 0.4);
+  }
+  100% { 
+    box-shadow: 0 25px 80px -16px hsla(220, 90%, 50%, 0.7), 
+                inset 0 3px 0 rgba(255, 255, 255, 0.25), 
+                0 0 0 3px hsla(220, 90%, 50%, 0.4), 
+                0 12px 40px -12px hsla(220, 90%, 30%, 0.5);
+  }
+}
+
+/* ============== EDITORIAL HOTEL SYSTEM (Warm Anthracite + Cream) ============== */
+:root {
+  --luxe-ink: 30 12% 14%;
+  --luxe-night: 30 10% 18%;
+  --luxe-card: 30 8% 22%;
+  --luxe-border: 36 18% 50%;
+  --luxe-gold: 36 35% 86%;          /* warm cream */
+  --luxe-gold-bright: 38 50% 92%;   /* bright cream highlight */
+  --luxe-gold-soft: 36 25% 80%;
+  --luxe-cream: 36 35% 95%;
+  --luxe-muted: 36 12% 70%;
+  --shadow-luxe: 0 30px 80px -20px hsla(0,0%,0%,0.55), 0 12px 32px -12px hsla(36,20%,40%,0.18);
+  --gold-shimmer: linear-gradient(110deg, hsl(var(--luxe-gold)) 0%, hsl(var(--luxe-gold-bright)) 45%, hsl(var(--luxe-gold)) 100%);
+}
+.font-display { font-family: 'Cormorant Garamond', Georgia, serif; letter-spacing: -0.012em; font-optical-sizing: auto; }
+.luxe-bg { background: radial-gradient(ellipse at top, hsl(var(--luxe-night)) 0%, hsl(var(--luxe-ink)) 60%, #000 100%); color: hsl(var(--luxe-cream)); }
+.glass-card {
+  background: linear-gradient(155deg, hsla(38,25%,18%,0.6), hsla(30,20%,10%,0.65));
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  border: 1px solid hsla(42,55%,55%,0.18);
+  box-shadow: var(--shadow-luxe);
+}
+.glass-card-light {
+  background: hsla(38,40%,96%,0.65);
+  backdrop-filter: blur(18px) saturate(1.2);
+  border: 1px solid hsla(42,40%,55%,0.25);
+}
+.gold-text { background: var(--gold-shimmer); -webkit-background-clip: text; background-clip: text; color: transparent; background-size: 200% auto; }
+.gold-divider { height: 1px; background: linear-gradient(90deg, transparent, hsl(var(--luxe-gold)/0.6), transparent); }
+.tilt-card { transition: transform .6s cubic-bezier(.2,.9,.3,1.2), box-shadow .4s; transform-style: preserve-3d; }
+.tilt-card:hover { transform: perspective(1200px) rotateX(-4deg) rotateY(4deg) translateY(-8px); box-shadow: 0 40px 80px -20px hsla(42,60%,40%,0.35); }
+.gold-ring-pulse { animation: gold-ring 2.4s ease-in-out infinite; }
+@keyframes gold-ring { 0%,100%{box-shadow:0 0 0 0 hsla(42,75%,60%,.45)} 50%{box-shadow:0 0 0 12px hsla(42,75%,60%,0)} }
+@keyframes shimmer-sweep { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
+.btn-luxe {
+  background: var(--gold-shimmer); background-size: 200% auto;
+  color: hsl(var(--luxe-ink)); font-weight: 600; letter-spacing: 0.04em;
+  padding: 0.95rem 2rem; border-radius: 999px;
+  box-shadow: 0 14px 40px -10px hsla(42,65%,50%,0.55), inset 0 1px 0 hsla(0,0%,100%,0.3);
+  transition: all .35s ease;
+}
+.btn-luxe:hover { background-position: right center; transform: translateY(-2px); box-shadow: 0 20px 50px -10px hsla(42,80%,55%,0.65); }
+.btn-luxe:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+@keyframes ken-burns { 0%{transform:scale(1) translate(0,0)} 100%{transform:scale(1.12) translate(-2%,-1%)} }
+.ken-burns { animation: ken-burns 22s ease-in-out infinite alternate; }
+@keyframes float-up { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+.reveal { animation: float-up .9s cubic-bezier(.2,.8,.2,1) both; }
+.reveal-delay-1 { animation-delay:.12s } .reveal-delay-2 { animation-delay:.24s } .reveal-delay-3 { animation-delay:.36s }
+.dish-card { position: relative; overflow: hidden; border-radius: 1.5rem; transition: all .5s cubic-bezier(.2,.9,.3,1.2); cursor: pointer; }
+.dish-card:hover { transform: translateY(-8px); }
+.dish-card.selected { box-shadow: 0 0 0 2px hsl(var(--luxe-gold)), 0 30px 60px -10px hsla(42,70%,50%,.4); }
+
+/* ============== CINEMATIC EDITORIAL SYSTEM (Pure Black + Gold) ============== */
+:root {
+  --cine-bg: 0 0% 0%;
+  --cine-surface: 0 0% 3%;
+  --cine-elevated: 0 0% 5%;
+  --cine-line: 36 25% 70%;
+  --gradient-aurora: radial-gradient(ellipse at 20% 0%, hsla(36,30%,80%,0.05), transparent 55%),
+                     radial-gradient(ellipse at 80% 100%, hsla(28,20%,30%,0.08), transparent 60%),
+                     linear-gradient(180deg, hsl(0 0% 0%) 0%, hsl(0 0% 2%) 100%);
+  --gradient-spotlight: radial-gradient(circle at 50% 20%, hsla(36,40%,90%,0.10), transparent 60%);
+  --gradient-gold-line: linear-gradient(90deg, transparent, hsla(36,30%,82%,0.6) 50%, transparent);
+  --shadow-cinema: 0 50px 120px -30px hsla(0,0%,0%,0.7), 0 20px 40px -20px hsla(36,20%,30%,0.18);
+  --glow-gold: 0 0 60px hsla(36,40%,85%,0.25), 0 0 120px hsla(36,30%,80%,0.12);
+}
+
+.cine-bg { background: var(--gradient-aurora); }
+.cine-surface { background: hsla(240,6%,7%,0.6); backdrop-filter: blur(24px) saturate(1.4); -webkit-backdrop-filter: blur(24px) saturate(1.4); border: 1px solid hsla(42,40%,45%,0.18); }
+.cine-glass { background: linear-gradient(155deg, hsla(240,6%,12%,0.5), hsla(240,6%,5%,0.7)); backdrop-filter: blur(28px) saturate(1.5); -webkit-backdrop-filter: blur(28px) saturate(1.5); border: 1px solid hsla(42,50%,55%,0.15); box-shadow: var(--shadow-cinema); }
+.cine-divider { height: 1px; background: var(--gradient-gold-line); }
+.cine-spotlight::before { content: ""; position: absolute; inset: 0; background: var(--gradient-spotlight); pointer-events: none; opacity: 0.6; mix-blend-mode: screen; }
+.cine-grain::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.05; mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.glow-gold { box-shadow: var(--glow-gold); }
+.text-glow { text-shadow: 0 0 30px hsla(42,80%,65%,0.4), 0 0 60px hsla(42,70%,55%,0.2); }
+
+/* Aurora moving gradient backdrop */
+@keyframes aurora-drift {
+  0%, 100% { transform: translate(0,0) rotate(0deg); }
+  50% { transform: translate(-3%,2%) rotate(180deg); }
+}
+.aurora-orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.5; animation: aurora-drift 22s ease-in-out infinite; pointer-events: none; }
+
+/* Marquee gradient text shimmer */
+@keyframes gold-shimmer-2 {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+.gold-shimmer-text {
+  background: linear-gradient(90deg, hsl(36 30% 82%), hsl(38 50% 95%), hsl(36 30% 82%));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gold-shimmer-2 4s linear infinite;
+}
+
+/* Cinematic CTA button — cream on warm anthracite */
+.cine-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 1rem 2rem;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, hsl(36 35% 88%), hsl(38 50% 95%));
+  color: hsl(30 12% 14%);
+  font-weight: 600;
+  overflow: hidden;
+  transition: all .4s cubic-bezier(.2,.8,.2,1);
+  box-shadow: 0 12px 32px -8px hsla(30,15%,8%,0.5), inset 0 1px 0 hsla(0,0%,100%,0.35);
+}
+.cine-btn::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(120deg, transparent 30%, hsla(0,0%,100%,0.5) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform .8s ease;
+}
+.cine-btn:hover { transform: translateY(-2px); box-shadow: 0 20px 50px -10px hsla(30,15%,8%,0.6), inset 0 1px 0 hsla(0,0%,100%,0.45); }
+.cine-btn:hover::before { transform: translateX(120%); }
+
+.cine-btn-ghost {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  padding: 1rem 2rem; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase;
+  border: 1px solid hsla(36,30%,80%,0.55);
+  background: hsla(30,10%,12%,0.45); backdrop-filter: blur(12px);
+  color: hsl(36 35% 92%); font-weight: 500;
+  transition: all .3s ease;
+}
+.cine-btn-ghost:hover { border-color: hsl(36 40% 88%); background: hsla(36,30%,80%,0.12); color: hsl(38 50% 95%); }
+
+/* Premium Glass CTA — frosted, gold-edged, apple-green hint. Matches dark cinematic theme. */
+.cine-btn-glass {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 1rem 2rem;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: hsl(38 45% 94%);
+  background:
+    linear-gradient(135deg, hsla(36,40%,85%,0.10), hsla(30,10%,12%,0.35)),
+    hsla(30,10%,8%,0.45);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid hsla(36,35%,75%,0.25);
+  box-shadow:
+    0 18px 50px -12px hsla(30,15%,4%,0.6),
+    inset 0 1px 0 hsla(36,40%,90%,0.18),
+    inset 0 -1px 0 hsla(30,10%,4%,0.3);
+  overflow: hidden;
+  transition: all .45s cubic-bezier(.2,.8,.2,1);
+}
+.cine-btn-glass::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(120deg, transparent 30%, hsla(36,50%,90%,0.22) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform .9s ease;
+  pointer-events: none;
+}
+.cine-btn-glass::after {
+  /* subtle gold edge highlight */
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, hsla(42,70%,70%,0.55), transparent 35%, transparent 65%, hsla(88,60%,55%,0.35));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  pointer-events: none;
+  opacity: .8;
+}
+.cine-btn-glass:hover {
+  transform: translateY(-2px);
+  border-color: hsla(36,45%,80%,0.5);
+  background:
+    linear-gradient(135deg, hsla(36,45%,88%,0.18), hsla(30,10%,12%,0.42)),
+    hsla(30,10%,8%,0.55);
+  box-shadow:
+    0 30px 70px -16px hsla(30,15%,4%,0.75),
+    0 0 0 1px hsla(42,55%,75%,0.3),
+    0 0 28px -6px hsla(42,70%,65%,0.35),
+    inset 0 1px 0 hsla(36,40%,90%,0.32);
+}
+.cine-btn-glass:hover::before { transform: translateX(120%); }
+.cine-btn-glass:active { transform: translateY(0); transition-duration: .15s; }
+
+/* Gentle idle gold breath — telegraphs interactivity without noise */
+@keyframes cine-btn-breath {
+  0%, 100% { box-shadow: 0 18px 50px -12px hsla(30,15%,4%,0.6), 0 0 0 1px hsla(42,55%,75%,0.10), inset 0 1px 0 hsla(36,40%,90%,0.18), inset 0 -1px 0 hsla(30,10%,4%,0.3); }
+  50%      { box-shadow: 0 18px 50px -12px hsla(30,15%,4%,0.6), 0 0 0 1px hsla(42,55%,75%,0.22), 0 0 22px -8px hsla(42,70%,65%,0.28), inset 0 1px 0 hsla(36,40%,90%,0.22), inset 0 -1px 0 hsla(30,10%,4%,0.3); }
+}
+.cine-btn-glass { animation: cine-btn-breath 4.6s ease-in-out infinite; }
+.cine-btn-glass:hover { animation: none; }
+@media (prefers-reduced-motion: reduce) {
+  .cine-btn-glass { animation: none; }
+}
+
+
+.cine-btn-glass-ghost {
+  position: relative;
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  padding: 1rem 2rem;
+  font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500;
+  color: hsl(36 35% 88%);
+  background: hsla(30,10%,8%,0.30);
+  backdrop-filter: blur(14px) saturate(130%);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
+  border: 1px solid hsla(36,30%,75%,0.22);
+  box-shadow: inset 0 1px 0 hsla(36,40%,90%,0.10);
+  transition: all .35s ease;
+}
+.cine-btn-glass-ghost:hover {
+  border-color: hsla(36,40%,82%,0.45);
+  background: hsla(30,10%,8%,0.45);
+  color: hsl(38 50% 95%);
+  transform: translateY(-1px);
+}
+
+/* Cinematic card */
+.cine-card {
+  position: relative;
+  background: linear-gradient(155deg, hsla(30,8%,18%,0.85), hsla(30,9%,14%,0.95));
+  border: 1px solid hsla(36,20%,55%,0.22);
+  transition: all .5s cubic-bezier(.2,.8,.2,1);
+  overflow: hidden;
+}
+.cine-card::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(135deg, hsla(36,30%,80%,0) 0%, hsla(36,30%,80%,0) 60%, hsla(36,30%,80%,0.10) 100%);
+  opacity: 0; transition: opacity .5s;
+}
+.cine-card:hover { transform: translateY(-6px); border-color: hsla(36,35%,80%,0.55); box-shadow: 0 30px 60px -20px hsla(0,0%,0%,0.7), 0 0 0 1px hsla(36,35%,80%,0.25); }
+.cine-card:hover::after { opacity: 1; }
+
+/* Reveal-up reusable */
+@keyframes reveal-up { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+.reveal-up { animation: reveal-up .9s cubic-bezier(.2,.8,.2,1) both; }
+
+/* Eyebrow label — dash removed for a cleaner, less ornamental look */
+.eyebrow-cine { display: inline-flex; align-items: center; gap: 0.75rem; color: hsl(36 35% 86%); font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; }
+
+/* ============== CHAMPAGNE GOLD BRAND TOKENS (formerly "apple green") ==============
+   Public site uses warm champagne gold throughout. Token names kept for
+   backwards-compatibility with existing class usages (.bg-apple, .text-apple, etc.).
+   Admin shell re-overrides these inside .admin-shell for its own neutral palette. */
+:root {
+  --apple: 38 45% 60%;             /* champagne gold — primary */
+  --apple-bright: 40 55% 72%;      /* hover / lift */
+  --apple-deep: 36 40% 42%;        /* deep gold */
+  --apple-glow: 40 50% 78%;        /* soft glow */
+  --apple-foreground: 30 18% 8%;   /* deep ink on gold */
+  --apple-surface: 38 22% 14%;     /* tint background on dark */
+  --apple-border: 38 30% 55%;
+  --apple-muted: 36 12% 60%;       /* readable neutral alternative */
+}
+.text-apple-muted { color: hsl(var(--foreground) / 0.6); }
+.text-apple { color: hsl(var(--gold)); }
+.text-apple-deep { color: hsl(var(--gold) / 0.8); }
+.bg-apple { background-color: hsl(var(--gold)); color: hsl(var(--background)); }
+.bg-apple-surface { background-color: hsl(var(--card)); }
+.border-apple { border-color: hsl(var(--gold) / 0.3); }
+.ring-apple { --tw-ring-color: hsl(var(--gold) / 0.4); }
+.shadow-apple { box-shadow: 0 10px 30px -12px hsl(var(--gold) / 0.35); }
+.bg-apple-gradient { background: linear-gradient(135deg, hsl(var(--gold) / 0.9), hsl(var(--gold))); color: hsl(var(--background)); }
+@keyframes apple-pulse { 0%,100%{box-shadow:0 0 0 0 hsl(var(--gold)/0.45)} 50%{box-shadow:0 0 0 10px hsl(var(--gold)/0)} }
+.apple-pulse { animation: apple-pulse 2.2s ease-out infinite; }
+
+.apple-shimmer-text {
+  background: linear-gradient(90deg, hsl(var(--apple)) 0%, hsl(var(--apple-bright)) 50%, hsl(var(--apple)) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gold-shimmer-2 4s linear infinite;
+}
+
+.apple-underline {
+  background-image: linear-gradient(120deg, hsla(88,60%,55%,0.45) 0%, hsla(88,60%,55%,0.45) 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.32em;
+  background-position: 0 88%;
+  padding: 0 0.05em;
+}
+
+/* Editorial gold hairline pill — replaces legacy green apple-pill */
+.apple-pill, .gold-hairline-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.3rem 0;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 500;
+  background: transparent;
+  color: hsl(var(--gold) / 0.9);
+  border: none;
+  border-bottom: 1px solid hsl(var(--gold) / 0.35);
+}
+
+.apple-dot, .gold-dot {
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 999px;
+  background: hsl(var(--gold));
+  box-shadow: 0 0 8px hsl(var(--gold) / 0.5);
+}
+
+.apple-divider { height: 1px; background: linear-gradient(90deg, transparent, hsl(var(--gold) / 0.45), transparent); }
+
+.eyebrow-apple {
+  display: inline-flex; align-items: center; gap: 0.75rem;
+  color: hsl(var(--gold) / 0.85);
+  font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; font-weight: 600;
+}
+/* Decorative dash removed — eyebrow stands on its own */
+
+/* Grey glossy button — transparent professional grey, never white */
+.btn-glass-grey {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  padding: 1rem 2rem; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: hsl(0 0% 96%);
+  background: linear-gradient(180deg, hsla(0,0%,22%,0.45) 0%, hsla(0,0%,12%,0.55) 100%);
+  border: 1px solid hsla(0,0%,100%,0.14);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: inset 0 1px 0 hsla(0,0%,100%,0.10), 0 12px 32px -12px hsla(0,0%,0%,0.55);
+  transition: all .35s cubic-bezier(.2,.8,.2,1);
+}
+.btn-glass-grey:hover {
+  background: linear-gradient(180deg, hsla(0,0%,28%,0.55) 0%, hsla(0,0%,16%,0.65) 100%);
+  transform: translateY(-1px);
+}
+.btn-glass-grey:active,
+.btn-glass-grey:focus,
+.btn-glass-grey:focus-visible {
+  background: linear-gradient(180deg, hsla(0,0%,18%,0.60) 0%, hsla(0,0%,10%,0.70) 100%) !important;
+  border-color: hsla(0,0%,100%,0.18) !important;
+  color: hsl(0 0% 96%) !important;
+  outline: none;
+  box-shadow: inset 0 1px 0 hsla(0,0%,100%,0.08), 0 6px 18px -8px hsla(0,0%,0%,0.6);
+  transform: translateY(0);
+}
+
+.cine-btn-apple {
+  position: relative;
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.625rem;
+  padding: 1rem 2rem; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase;
+  background: linear-gradient(135deg, hsl(var(--apple)), hsl(var(--apple-bright)));
+  color: hsl(var(--apple-foreground));
+  font-weight: 700; overflow: hidden;
+  transition: all .4s cubic-bezier(.2,.8,.2,1);
+  box-shadow: 0 12px 32px -8px hsla(88,55%,30%,0.55), inset 0 1px 0 hsla(0,0%,100%,0.35);
+}
+.cine-btn-apple:hover { transform: translateY(-2px); box-shadow: 0 20px 50px -10px hsla(88,60%,40%,0.65); }
+
+/* ───────── Global image brightness control ───────── */
+:root { --site-brightness: 1.53; }
+
+/* Hero / cinematic background images get the global brightness boost */
+.ken-burns,
+img[data-hero="true"],
+.hero-img,
+.landing-img {
+  filter: brightness(var(--site-brightness)) contrast(1.08) saturate(1.06);
+  transition: filter .4s ease;
+}
+
+/* Per-image override via inline style: style={{ ['--img-brightness' as any]: 1.2 }} */
+img[data-brightness] {
+  filter: brightness(var(--img-brightness, var(--site-brightness))) contrast(1.08);
+}
+
+/* ───────── Landing page brightness boost (~+20% professional lift) ───────── */
+.landing-page { --site-brightness: 1.85; }
+.landing-page .ken-burns,
+.landing-page img[data-hero="true"],
+.landing-page .hero-img,
+.landing-page .landing-img,
+.landing-page section img:not([data-no-boost]) {
+  filter: brightness(var(--site-brightness)) contrast(1.06) saturate(1.05);
+}
+/* Lift dark text overlays on landing for readability without washing them out */
+.landing-page,
+.landing-page .text-foreground\/60,
+.landing-page .text-foreground\/70,
+.landing-page .text-foreground\/80,
+.landing-page .text-foreground\/85,
+.landing-page .text-white\/60,
+.landing-page .text-white\/70,
+.landing-page .text-white\/80,
+.landing-page .text-white\/85,
+.landing-page .text-muted-foreground {
+  filter: brightness(1.12);
+}
+/* Reduce heavy dark overlays on landing sections by ~20% */
+.landing-page section [class*="bg-black/"],
+.landing-page section [class*="from-black/"],
+.landing-page section [class*="to-black/"],
+.landing-page section [class*="via-black/"] {
+  opacity: 0.8;
+}
+
+/* ───────── Global readability lift — minimum legible opacity for body text ─────────
+   Prevents low-contrast text (e.g. text-foreground/40, text-white/50) from becoming
+   unreadable on photographic backgrounds. Excludes admin shell which has its own scale. */
+body:not(.admin-shell) :is(
+  [class*="text-foreground/4"],
+  [class*="text-foreground/5"],
+  [class*="text-foreground/6"],
+  [class*="text-white/4"],
+  [class*="text-white/5"],
+  [class*="text-white/6"],
+  [class*="text-muted-foreground/4"],
+  [class*="text-muted-foreground/5"],
+  [class*="text-muted-foreground/6"]
+) {
+  color: hsl(var(--foreground) / 0.82) !important;
+}
+body:not(.admin-shell) :is(
+  [class*="text-foreground/7"],
+  [class*="text-white/7"],
+  [class*="text-muted-foreground/7"]
+) {
+  color: hsl(var(--foreground) / 0.9) !important;
+}
+
+
+
+
+/* ───────── Clara highlight flash (when voice agent points to a section) ───────── */
+@keyframes clara-flash {
+  0%   { box-shadow: 0 0 0 0 hsla(88, 80%, 55%, 0); }
+  20%  { box-shadow: 0 0 0 6px hsla(88, 80%, 55%, 0.55), 0 0 60px hsla(88, 80%, 55%, 0.45); }
+  100% { box-shadow: 0 0 0 0 hsla(88, 80%, 55%, 0); }
+}
+.clara-flash { animation: clara-flash 2.4s ease-out; border-radius: 1rem; }
+
+/* ───────── Clara Web-Call button micro-animations ───────── */
+@keyframes clara-breathe {
+  0%, 100% { box-shadow: 0 0 0 0 hsla(42, 60%, 70%, 0); }
+  50%      { box-shadow: 0 0 0 6px hsla(42, 60%, 70%, 0.18), 0 0 28px hsla(42, 60%, 70%, 0.28); }
+}
+@keyframes clara-wave {
+  0%, 100% { transform: scaleY(0.4); opacity: 0.6; }
+  50%      { transform: scaleY(1);   opacity: 1;   }
+}
+
+/* ============== ADMIN SHELL — HEIDEHOF DARK OPERATIONS MODE ============== */
+.admin-shell {
+  /* Override semantic tokens within admin only */
+  --background: 28 18% 3%;
+  --foreground: 42 34% 94%;
+  --card: 34 16% 7%;
+  --card-foreground: 42 34% 94%;
+  --popover: 34 16% 7%;
+  --popover-foreground: 42 34% 94%;
+  --primary: 38 52% 70%;
+  --primary-foreground: 28 18% 4%;
+  --secondary: 34 14% 11%;
+  --secondary-foreground: 42 28% 88%;
+  --muted: 34 14% 11%;
+  --muted-foreground: 38 15% 68%;
+  --accent: 78 42% 26%;
+  --accent-foreground: 42 34% 94%;
+  --border: 38 22% 24%;
+  --input: 38 22% 24%;
+  --ring: 38 52% 70%;
+  --apple: 78 48% 54%;
+  --apple-bright: 78 58% 66%;
+  --apple-deep: 78 38% 34%;
+  --apple-foreground: 28 18% 4%;
+
+  --hairline: hsl(38 22% 24% / 0.72);
+  --hairline-strong: hsl(38 34% 44% / 0.72);
+
+  background:
+    radial-gradient(ellipse at 22% 0%, hsl(39 42% 18% / 0.26), transparent 44%),
+    linear-gradient(180deg, hsl(28 18% 3%), hsl(0 0% 0%));
+  color: hsl(var(--foreground));
+}
+.admin-shell aside,
+.admin-shell header,
+.admin-shell .border-b,
+.admin-shell .border-t,
+.admin-shell .border-r,
+.admin-shell .border-l,
+.admin-shell .border,
+.admin-shell .border-border {
+  border-color: var(--hairline) !important;
+}
+.admin-shell aside {
+  background: linear-gradient(180deg, hsl(38 16% 10% / 0.97), hsl(0 0% 2% / 0.99));
+  box-shadow: inset -1px 0 0 var(--hairline);
+}
+.admin-shell header {
+  background: linear-gradient(180deg, hsl(34 14% 9% / 0.96), hsl(0 0% 2% / 0.94));
+  box-shadow: inset 0 -1px 0 var(--hairline);
+}
+.admin-shell .bg-card,
+.admin-shell .bg-background,
+.admin-shell .bg-popover,
+.admin-shell .bg-white,
+.admin-shell [class*="bg-zinc-50"],
+.admin-shell [class*="bg-slate-50"],
+.admin-shell [class*="bg-gray-50"] {
+  background-color: hsl(var(--card)) !important;
+}
+.admin-shell .bg-muted,
+.admin-shell .bg-muted\/30,
+.admin-shell .bg-muted\/40,
+.admin-shell .bg-muted\/50,
+.admin-shell .bg-muted\/60 {
+  background-color: hsl(var(--muted)) !important;
+}
+.admin-shell .text-foreground,
+.admin-shell .text-card-foreground,
+.admin-shell h1,
+.admin-shell h2,
+.admin-shell h3,
+.admin-shell h4 {
+  color: hsl(var(--foreground)) !important;
+}
+.admin-shell .text-muted-foreground { color: hsl(var(--muted-foreground)) !important; }
+.admin-shell input,
+.admin-shell textarea,
+.admin-shell select {
+  background-color: hsl(34 16% 8%) !important;
+  color: hsl(var(--foreground)) !important;
+  border-color: var(--hairline-strong) !important;
+  color-scheme: dark;
+}
+.admin-shell input::placeholder,
+.admin-shell textarea::placeholder { color: hsl(var(--muted-foreground) / 0.76); }
+
+/* Panel primitive used inside admin pages */
+.admin-panel {
+  background: hsl(var(--card));
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+  display: flex; flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+  box-shadow: 0 16px 48px -36px hsl(0 0% 0%), inset 0 1px 0 hsl(38 40% 78% / 0.08);
+}
+.admin-panel-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--hairline);
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+  background: hsl(var(--muted));
+}
+.admin-panel-body { flex: 1; min-height: 0; overflow: auto; padding: 14px; }
+
+/* Fixed-height dashboard grid helper — pages opt-in via `admin-grid` */
+.admin-grid {
+  display: grid;
+  gap: 14px;
+  height: 100%;
+  min-height: 0;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-rows: minmax(0, 1fr);
+}
+@media (max-width: 900px) {
+  .admin-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+
+/* ───────── Global button :active — transparent professional grey ─────────
+   Prevents any button from flashing white on tap/click (mobile & desktop).
+   Excludes destructive/apple/lime accents which should keep their colour. */
+button:active:not(.btn-glass-grey):not([data-accent="destructive"]):not([data-accent="apple"]):not(.no-grey-active),
+[role="button"]:active:not(.btn-glass-grey):not(.no-grey-active),
+a.btn:active:not(.no-grey-active) {
+  background-image: linear-gradient(180deg, hsla(0,0%,22%,0.55) 0%, hsla(0,0%,12%,0.65) 100%) !important;
+  background-color: transparent !important;
+  color: hsl(0 0% 96%) !important;
+  border-color: hsla(0,0%,100%,0.16) !important;
+  box-shadow: inset 0 1px 0 hsla(0,0%,100%,0.10), 0 4px 14px -6px hsla(0,0%,0%,0.55) !important;
+  -webkit-tap-highlight-color: transparent;
+}
+/* Admin: keep active feedback inside the dark token system */
+.admin-shell button:active,
+.admin-shell [role="button"]:active,
+.admin-shell a.btn:active {
+  background-image: none !important;
+  background-color: hsl(38 18% 16%) !important;
+  color: hsl(var(--foreground)) !important;
+  border-color: var(--hairline-strong) !important;
+  box-shadow: none !important;
+}
+
+/* Remove iOS/Android default white tap-highlight everywhere */
+* { -webkit-tap-highlight-color: transparent; }
+
+/* ───────── Clara Live-Tour Spotlight ───────── */
+@keyframes clara-spotlight-pulse {
+  0%   { box-shadow: 0 0 0 0   hsla(36, 70%, 60%, 0.65), 0 0 0 0 hsla(36, 70%, 60%, 0.0); }
+  60%  { box-shadow: 0 0 0 16px hsla(36, 70%, 60%, 0.12), 0 0 60px 12px hsla(36, 70%, 60%, 0.45); }
+  100% { box-shadow: 0 0 0 0   hsla(36, 70%, 60%, 0.0),  0 0 0 0 hsla(36, 70%, 60%, 0.0); }
+}
+.clara-spotlight {
+  position: relative;
+  z-index: 5;
+  border-radius: 18px;
+  outline: 3px solid hsl(var(--gold));
+  outline-offset: 6px;
+  animation: clara-spotlight-pulse 1.6s ease-out 3;
+  scroll-margin-top: 120px;
+  transition: outline-color 0.4s ease, opacity 0.4s ease, filter 0.4s ease;
+}
+.clara-dimmed {
+  opacity: 0.28 !important;
+  filter: saturate(0.6) blur(0.5px);
+  transition: opacity 0.45s ease, filter 0.45s ease;
+  pointer-events: none;
+}
+
+/* Vollbild-Variante: alles andere unter dem Overlay deaktivieren */
+body.clara-overlay-fullscreen { overflow: hidden; }
+
+/* ============== PRO ANIMATIONS & APPLE-GREEN ACCENTS (≈20%) ============== */
+
+/* Soft float — for icons, badges, small decor */
+@keyframes pro-float-soft {
+  0%, 100% { transform: translateY(0) }
+  50%      { transform: translateY(-6px) }
+}
+.anim-float-soft { animation: pro-float-soft 6s ease-in-out infinite; will-change: transform; }
+
+/* Slow shine sweep across surfaces (cards, buttons) */
+@keyframes pro-shine-sweep {
+  0%   { transform: translateX(-120%) skewX(-18deg) }
+  60%  { transform: translateX(160%)  skewX(-18deg) }
+  100% { transform: translateX(160%)  skewX(-18deg) }
+}
+.anim-shine { position: relative; overflow: hidden; isolation: isolate; }
+.anim-shine::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(110deg,
+    transparent 30%,
+    hsla(36,40%,92%,0.18) 48%,
+    hsla(88,55%,70%,0.22) 52%,   /* subtle apple-green tint in the sheen */
+    transparent 70%);
+  transform: translateX(-120%) skewX(-18deg);
+  animation: pro-shine-sweep 6.5s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+/* Reveal-up on scroll (works without JS via IntersectionObserver class .in-view, but
+   also stands alone as a one-shot entrance) */
+@keyframes pro-reveal-up {
+  from { opacity: 0; transform: translateY(22px) }
+  to   { opacity: 1; transform: translateY(0) }
+}
+.anim-reveal { animation: pro-reveal-up .9s cubic-bezier(.2,.8,.2,1) both; }
+.anim-reveal-d1 { animation-delay: .12s }
+.anim-reveal-d2 { animation-delay: .24s }
+.anim-reveal-d3 { animation-delay: .36s }
+.anim-reveal-d4 { animation-delay: .48s }
+
+/* Magnetic hover lift (use on cards/buttons) */
+.anim-magnetic {
+  transition: transform .5s cubic-bezier(.2,.9,.3,1.2),
+              box-shadow .4s ease,
+              filter .4s ease;
+  will-change: transform;
+}
+.anim-magnetic:hover {
+  transform: translateY(-6px) scale(1.012);
+  box-shadow: 0 28px 60px -22px hsla(0,0%,0%,0.55),
+              0 10px 24px -12px hsla(88,40%,40%,0.18);
+}
+
+/* Apple-green glow pulse — for active states / live dots */
+@keyframes pro-apple-glow {
+  0%,100% { box-shadow: 0 0 0 0 hsla(88,60%,55%,0.55), 0 0 18px hsla(88,55%,55%,0.35) }
+  50%     { box-shadow: 0 0 0 10px hsla(88,60%,55%,0),  0 0 24px hsla(88,55%,55%,0.55) }
+}
+.anim-apple-glow { animation: pro-apple-glow 2.4s ease-out infinite; }
+
+/* Gradient text shift — gold ↔ subtle apple highlight (≤20%) */
+@keyframes pro-gradient-shift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+
+/* Voice waveform bar — alternating heights for listening/speaking indicators */
+@keyframes voice-bar {
+  0%   { transform: scaleY(0.2); opacity: 0.4; }
+  100% { transform: scaleY(1);   opacity: 1;   }
+}
+.voice-bar { animation: voice-bar 0.7s ease-in-out infinite alternate; transform-origin: bottom; }
+.gold-shimmer-text-pro {
+  background: linear-gradient(90deg,
+    hsl(var(--luxe-gold)) 0%,
+    hsl(var(--luxe-gold-bright)) 35%,
+    hsl(var(--apple-glow)) 50%,   /* apple-green accent point */
+    hsl(var(--luxe-gold-bright)) 65%,
+    hsl(var(--luxe-gold)) 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: pro-gradient-shift 7s ease-in-out infinite;
+}
+
+/* Apple-tinted underline accent for inline links / eyebrows */
+.accent-underline-apple {
+  background-image: linear-gradient(90deg, hsl(var(--apple-bright)), hsl(var(--apple-glow)));
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size .5s cubic-bezier(.2,.8,.2,1);
+  padding-bottom: 2px;
+}
+.accent-underline-apple:hover { background-size: 100% 2px; }
+
+/* Hover refinement for gold hairline pill */
+.apple-pill, .gold-hairline-pill {
+  transition: color .35s ease, border-color .35s ease;
+}
+.apple-pill:hover, .gold-hairline-pill:hover {
+  color: hsl(var(--gold));
+  border-bottom-color: hsl(var(--gold) / 0.7);
+}
+
+/* Live status dot — gold */
+.live-dot-apple {
+  position: relative; display: inline-block;
+  width: .55rem; height: .55rem; border-radius: 999px;
+  background: hsl(var(--gold));
+  box-shadow: 0 0 12px hsl(var(--gold) / 0.5);
+}
+.live-dot-apple::before {
+  content: ""; position: absolute; inset: -4px; border-radius: 999px;
+  border: 1px solid hsl(var(--gold) / 0.5);
+  animation: pro-apple-glow 2.4s ease-out infinite;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .anim-float-soft, .anim-shine::after, .anim-reveal,
+  .gold-shimmer-text-pro, .anim-apple-glow, .live-dot-apple::before {
+    animation: none !important;
+  }
+  .anim-magnetic { transition: none !important; }
+}
+
+/* Clara In-App Embedding Styles */
+body.clara-embedded header,
+body.clara-embedded footer,
+body.clara-embedded .site-header,
+body.clara-embedded .site-footer,
+body.clara-embedded #skip-link,
+body.clara-embedded .hide-when-embedded {
+  display: none !important;
+}
+
+body.clara-embedded main,
+body.clara-embedded #main-content {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+/* ============================================================
+   Snap-Scroll for storytelling pages (toggled by SnapScrollManager)
+   ============================================================ */
+html.snap-page {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+html.snap-page body { overflow-x: hidden; }
+
+/* Each top-level <section> on snap pages becomes a snap target */
+html.snap-page main#main-content > * section,
+html.snap-page main#main-content section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Respect users who disable motion or are on small/touch devices where
+   forced snap feels janky on long sections */
+@media (prefers-reduced-motion: reduce) {
+  html.snap-page { scroll-snap-type: none; }
+}
+@media (max-width: 767px) {
+  html.snap-page { scroll-snap-type: y proximity; }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   WORLD-CLASS UPGRADES — ui-ux-pro-max level
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── 1. TEXT RENDERING — antialiasing & OpenType features ── */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "ss01" 1;
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* ── 2. FLUID TYPOGRAPHY — clamp() responsive scale ── */
+.text-fluid-hero    { font-size: clamp(3.25rem, 8vw + 1rem, 9.5rem); }
+.text-fluid-display { font-size: clamp(2.5rem, 5.5vw + 1rem, 7.5rem); }
+.text-fluid-h1      { font-size: clamp(2rem, 3.5vw + 1rem, 4.5rem); }
+.text-fluid-h2      { font-size: clamp(1.5rem, 2.5vw + 0.75rem, 3rem); }
+.text-fluid-h3      { font-size: clamp(1.25rem, 1.5vw + 0.875rem, 2rem); }
+.text-fluid-body    { font-size: clamp(1rem, 0.5vw + 0.875rem, 1.125rem); }
+.text-fluid-sm      { font-size: clamp(0.875rem, 0.25vw + 0.8rem, 1rem); }
+
+/* ── 3. VIEW TRANSITIONS API — cinematic page navigation ── */
+@view-transition { navigation: auto; }
+::view-transition-old(root) {
+  animation: 260ms cubic-bezier(.4,0,1,1) both vt-fade-out;
+}
+::view-transition-new(root) {
+  animation: 380ms cubic-bezier(0,.5,.2,1) 60ms both vt-fade-in;
+}
+@keyframes vt-fade-out {
+  from { opacity: 1; filter: blur(0); }
+  to   { opacity: 0; filter: blur(6px); transform: scale(0.985); }
+}
+@keyframes vt-fade-in {
+  from { opacity: 0; filter: blur(6px); transform: scale(1.015); }
+  to   { opacity: 1; filter: blur(0);   transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+}
+
+/* ── 4. LUXURY SELECTION COLOR ── */
+::selection      { background: hsla(36,55%,70%,0.32); color: hsl(38 55% 97%); }
+::-moz-selection { background: hsla(36,55%,70%,0.32); color: hsl(38 55% 97%); }
+
+/* ── 5. FOCUS RING — WCAG 2.1 AA gold ring ── */
+:focus-visible {
+  outline: 2px solid hsl(36 45% 70%);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── 6. GLOBAL SCROLLBAR — gold hairline ── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: hsl(0 0% 4%); }
+::-webkit-scrollbar-thumb {
+  background: hsl(36 28% 38%);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover { background: hsl(36 40% 55%); }
+
+/* ── 7. TRACKING-IN — letter-spacing reveal for eyebrows ── */
+@keyframes tracking-widen {
+  from { letter-spacing: -0.25em; opacity: 0; }
+  to   { opacity: 1; }
+}
+.tracking-in {
+  animation: tracking-widen .9s cubic-bezier(.2,.8,.2,1) both;
+}
+.tracking-in-d1 { animation-delay: .15s }
+.tracking-in-d2 { animation-delay: .3s }
+.tracking-in-d3 { animation-delay: .45s }
+
+/* ── 8. CLIP-PATH IMAGE REVEAL — wipe-in from left ── */
+.clip-reveal {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.1s cubic-bezier(.76,0,.24,1);
+}
+.clip-reveal.in-view { clip-path: inset(0 0% 0 0); }
+
+.clip-reveal-up {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1s cubic-bezier(.76,0,.24,1);
+}
+.clip-reveal-up.in-view { clip-path: inset(0 0 0% 0); }
+
+/* ── 9. SCROLL REVEAL — global IntersectionObserver targets ── */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .85s cubic-bezier(.2,.8,.2,1),
+              transform .85s cubic-bezier(.2,.8,.2,1);
+}
+.scroll-reveal.in-view   { opacity: 1; transform: translateY(0); }
+.scroll-reveal-left      { opacity: 0; transform: translateX(-28px);
+  transition: opacity .85s cubic-bezier(.2,.8,.2,1), transform .85s cubic-bezier(.2,.8,.2,1); }
+.scroll-reveal-left.in-view  { opacity: 1; transform: translateX(0); }
+.scroll-reveal-right     { opacity: 0; transform: translateX(28px);
+  transition: opacity .85s cubic-bezier(.2,.8,.2,1), transform .85s cubic-bezier(.2,.8,.2,1); }
+.scroll-reveal-right.in-view { opacity: 1; transform: translateX(0); }
+.scroll-reveal-scale     { opacity: 0; transform: scale(0.93);
+  transition: opacity .9s cubic-bezier(.2,.8,.2,1), transform .9s cubic-bezier(.2,.8,.2,1); }
+.scroll-reveal-scale.in-view { opacity: 1; transform: scale(1); }
+
+.sr-d1 { transition-delay: .1s } .sr-d2 { transition-delay: .2s }
+.sr-d3 { transition-delay: .3s } .sr-d4 { transition-delay: .4s }
+.sr-d5 { transition-delay: .5s } .sr-d6 { transition-delay: .6s }
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal, .scroll-reveal-left, .scroll-reveal-right,
+  .scroll-reveal-scale, .clip-reveal, .clip-reveal-up, .tracking-in {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ── 10. CSS SCROLL-DRIVEN PARALLAX (Chrome 115+ / Firefox 128+) ── */
+@supports (animation-timeline: scroll()) {
+  .parallax-slow {
+    animation: parallax-drift-slow linear both;
+    animation-timeline: scroll();
+    animation-range: 0 80vh;
+  }
+  @keyframes parallax-drift-slow {
+    from { transform: translateY(0); }
+    to   { transform: translateY(6%); }
+  }
+}
+
+/* ── 11. TEXT BALANCE — prevents orphans on headings ── */
+.text-balance   { text-wrap: balance; }
+.text-pretty    { text-wrap: pretty; }
+
+/* ── 12. IMAGE HOVER REVEAL OVERLAY — luxury card detail ── */
+.img-hover-reveal {
+  position: relative;
+  overflow: hidden;
+}
+.img-hover-reveal::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg,
+    hsla(36,40%,85%,0) 0%,
+    hsla(36,40%,85%,0.06) 50%,
+    hsla(36,40%,85%,0) 100%);
+  opacity: 0;
+  transition: opacity .6s ease;
+  pointer-events: none;
+}
+.img-hover-reveal:hover::after { opacity: 1; }
+
+/* ── 13. CONTAINER QUERIES — component-level responsiveness ── */
+.cq { container-type: inline-size; }
+.cq-size { container-type: size; }
+
+/* ── 14. STAGGER CHILDREN — automatic delay cascade ── */
+.stagger-children > *:nth-child(1) { transition-delay: .0s; animation-delay: .0s; }
+.stagger-children > *:nth-child(2) { transition-delay: .12s; animation-delay: .12s; }
+.stagger-children > *:nth-child(3) { transition-delay: .24s; animation-delay: .24s; }
+.stagger-children > *:nth-child(4) { transition-delay: .36s; animation-delay: .36s; }
+.stagger-children > *:nth-child(5) { transition-delay: .48s; animation-delay: .48s; }
+.stagger-children > *:nth-child(6) { transition-delay: .60s; animation-delay: .60s; }
+
+/* ── 15. AMBIENT GLOW CARD ── */
+@keyframes ambient-glow-drift {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+.ambient-card {
+  position: relative;
+}
+.ambient-card::before {
+  content: "";
+  position: absolute; inset: -1px; border-radius: inherit;
+  background: linear-gradient(135deg,
+    hsla(36,55%,72%,0.0) 0%,
+    hsla(36,55%,72%,0.35) 50%,
+    hsla(36,55%,72%,0.0) 100%);
+  background-size: 200% 200%;
+  opacity: 0;
+  transition: opacity .5s ease;
+  z-index: -1;
+}
+.ambient-card:hover::before { opacity: 1; animation: ambient-glow-drift 3s ease infinite; }
+
+/* ── 16. PROSE IMPROVEMENTS — better reading experience ── */
+.prose-hotel {
+  font-size: clamp(1rem, 0.5vw + 0.875rem, 1.125rem);
+  line-height: 1.75;
+  max-width: 68ch;
+  hanging-punctuation: first last;
+}
+.prose-hotel > p + p { margin-top: 1.5em; }
+.prose-hotel strong { color: hsl(38 50% 92%); font-weight: 600; }
+
+/* ── 17. GRADIENT BORDER BUTTON ── */
+.btn-gradient-border {
+  position: relative;
+  background: transparent;
+}
+.btn-gradient-border::before {
+  content: "";
+  position: absolute; inset: 0; border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, hsl(36 45% 72%), transparent 40%, transparent 60%, hsl(36 45% 72%));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ── 18. WORD-BY-WORD REVEAL — for JS-split headlines ── */
+@keyframes word-rise {
+  from { opacity: 0; transform: translateY(1.2em) rotate(2deg); }
+  to   { opacity: 1; transform: translateY(0) rotate(0deg); }
+}
+.word-reveal-item {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+.word-reveal-item > span {
+  display: inline-block;
+  animation: word-rise .7s cubic-bezier(.2,.8,.2,1) both;
+}
+
+/* ── 19. LUXURY IMAGE CAPTION ── */
+.img-caption {
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: hsl(36 25% 65%);
+  padding-top: 0.75rem;
+  border-top: 1px solid hsl(36 20% 30%);
+}
+
+/* Hero Cinematic */
+@keyframes heroSlideUp {
+  0% { opacity: 0; transform: translateY(110%); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes heroScrollLine {
+  0%, 100% { transform: scaleY(1); transform-origin: top; opacity: 0.8; }
+  50% { transform: scaleY(0.3); opacity: 0.3; }
+}

@@ -1,0 +1,68 @@
+// Mapping for Clara → interne Routen unserer App.
+// Wird von Tools wie navigateTo / show_section / recommend_room ausgelöst,
+// damit der Sprach- bzw. Anfrage-Assistent unsere eigene Seite "klicken" kann.
+
+export const INTERNAL_ROUTES: Record<string, string> = {
+  start: "/",
+  home: "/",
+  landing: "/",
+  tagungsraeume: "/tagungsraeume",
+  raeume: "/tagungsraeume",
+  raum: "/tagungsraeume",
+  tagungspauschalen: "/tagungspauschalen",
+  tagungsangebote: "/tagungspauschalen",
+  pauschalen: "/tagungspauschalen",
+  ausstattung: "/ausstattung-technik",
+  technik: "/ausstattung-technik",
+  outdoor: "/outdoor-aktiv",
+  aktiv: "/outdoor-aktiv",
+  bankett: "/veranstaltungen",
+  anfrage: "/tagungsraeume",
+  kontakt: "/tagungsraeume",
+  lage: "/",
+  angebote: "/tagungspauschalen",
+  wellness: "/wellness",
+  wasserwelt: "/wellness",
+  pool: "/wellness",
+  sauna: "/wellness",
+  ruhebereich: "/wellness",
+  spa: "/spa",
+  massage: "/spa",
+  beauty: "/spa",
+  fitness: "/spa",
+  behandlung: "/spa",
+  getraenkekarte: "/getraenkekarte",
+  "getränkekarte": "/getraenkekarte",
+  "getränke": "/getraenkekarte",
+  getraenke: "/getraenkekarte",
+  wein: "/getraenkekarte",
+  bier: "/getraenkekarte",
+  cocktail: "/getraenkekarte",
+  drink: "/getraenkekarte",
+  bar: "/getraenkekarte",
+  speisekarte: "/speisekarte",
+  speise: "/speisekarte",
+  speisen: "/speisekarte",
+  essen: "/speisekarte",
+  gericht: "/speisekarte",
+  "menü": "/speisekarte",
+  menue: "/speisekarte",
+  restaurant: "/speisekarte",
+  veranstaltungen: "/veranstaltungen",
+  veranstaltung: "/veranstaltungen",
+  event: "/veranstaltungen",
+  events: "/veranstaltungen",
+  hochzeit: "/veranstaltungen",
+  feier: "/veranstaltungen",
+  gala: "/veranstaltungen",
+  brunch: "/veranstaltungen",
+  impressum: "/impressum",
+  datenschutz: "/datenschutz",
+};
+
+export function resolveInternalRoute(key?: string): string | null {
+  if (!key) return null;
+  const k = key.toLowerCase().replace(/^\/+/, "").trim();
+  if (k.startsWith("/")) return k;
+  return INTERNAL_ROUTES[k] ?? null;
+}

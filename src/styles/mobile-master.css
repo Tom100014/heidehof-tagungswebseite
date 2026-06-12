@@ -1,0 +1,134 @@
+/* ========================================
+   MOBILE MASTER CSS
+   Consolidated Mobile Styles
+   ======================================== */
+
+/* Import Safe Area Core */
+@import './pwa-mobile-core.css';
+
+/* Mobile Base Styles */
+@media (max-width: 768px) {
+  /* Typography - Mobile Optimized */
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+    line-height: 1.3;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+  
+  /* Container Spacing */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Touch Targets - Enhanced */
+  button,
+  [role="button"],
+  a.interactive {
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+  }
+  
+  /* Input Fields - Mobile Friendly */
+  input,
+  textarea,
+  select {
+    min-height: 48px;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+  }
+  
+  /* Scrollable Content Areas */
+  .scrollable-content {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    max-height: calc(var(--vh, 1vh) * 100 - 200px);
+  }
+  
+  /* Form Containers */
+  .form-container {
+    padding: 1.5rem 1rem;
+  }
+  
+  /* Card Elements */
+  .card-mobile {
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+}
+
+/* Tablet Optimizations (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+/* iOS Safari Specific Fixes */
+@supports (-webkit-touch-callout: none) {
+  /* Background attachment fix for iOS */
+  [style*="background-attachment: fixed"] {
+    background-attachment: scroll !important;
+  }
+  
+  /* Input zoom prevention */
+  input:focus,
+  textarea:focus,
+  select:focus {
+    font-size: 16px !important;
+  }
+  
+  /* Smooth scrolling */
+  body,
+  html {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Active Touch Feedback */
+@media (hover: none) and (pointer: coarse) {
+  button:active,
+  [role="button"]:active,
+  a.interactive:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+}
+
+/* Landscape Mobile Adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  .scrollable-content {
+    max-height: calc(var(--vh, 1vh) * 100 - 150px);
+  }
+}

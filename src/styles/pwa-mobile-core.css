@@ -1,0 +1,108 @@
+/* ========================================
+   PWA MOBILE CORE CSS
+   iOS Safe Area & Universal Mobile Base
+   ======================================== */
+
+/* iOS Safe Area Insets - Universal Variables */
+:root {
+  --safe-area-inset-top: env(safe-area-inset-top, 0px);
+  --safe-area-inset-right: env(safe-area-inset-right, 0px);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-inset-left: env(safe-area-inset-left, 0px);
+  
+  /* Dynamic viewport height (compensates for iOS Safari toolbar) */
+  --vh: 1vh;
+}
+
+/* iOS & Mobile Device Auto-Padding */
+body.ios,
+body.mobile {
+  padding-top: var(--safe-area-inset-top);
+  padding-bottom: var(--safe-area-inset-bottom);
+  padding-left: var(--safe-area-inset-left);
+  padding-right: var(--safe-area-inset-right);
+}
+
+/* Fixed Header Safe Area Support */
+header.fixed-header,
+.header-fixed {
+  padding-top: calc(1rem + var(--safe-area-inset-top));
+  top: 0;
+}
+
+/* Fixed Footer & Bottom Navigation Safe Area */
+footer.fixed-footer,
+.footer-fixed,
+.bottom-nav-bar {
+  padding-bottom: calc(1rem + var(--safe-area-inset-bottom));
+  bottom: 0;
+}
+
+/* iOS Home Indicator Extra Spacing */
+@supports (-webkit-touch-callout: none) {
+  body.ios .bottom-nav-bar,
+  body.ios footer.fixed-footer {
+    padding-bottom: calc(var(--safe-area-inset-bottom) + 1.5rem);
+  }
+  
+  /* Prevent transform interference with fixed positioning */
+  body.ios,
+  body.ios #root {
+    transform: none !important;
+  }
+  
+  /* Fixed elements GPU acceleration for iOS */
+  .fixed,
+  .sticky,
+  [style*="position: fixed"],
+  [style*="position: sticky"] {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+}
+
+/* Content padding when bottom navigation exists */
+body.has-bottom-nav main,
+body.has-bottom-nav .main-content {
+  padding-bottom: calc(80px + var(--safe-area-inset-bottom));
+}
+
+/* Universal Touch Optimization */
+@media (max-width: 768px) {
+  /* Prevent double-tap zoom on iOS */
+  * {
+    touch-action: manipulation;
+  }
+  
+  /* Minimum touch target sizes */
+  button,
+  [role="button"],
+  a.interactive,
+  input[type="button"],
+  input[type="submit"] {
+    min-height: 48px;
+    min-width: 48px;
+  }
+  
+  /* Prevent iOS input zoom */
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
+
+/* Fullscreen height helper using dynamic viewport height */
+.full-screen-height {
+  /* Fallback → dynamic → true dynamic (iOS 15.4+) */
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  height: 100dvh;
+}
+
+.min-full-screen-height {
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+  min-height: 100dvh;
+}

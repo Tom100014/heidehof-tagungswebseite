@@ -1,0 +1,220 @@
+
+/* CTA Section Styles für Blog-Integration */
+.cta-section {
+  margin: 2rem 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(212, 165, 116, 0.1) 0%, rgba(184, 149, 106, 0.1) 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(212, 165, 116, 0.3);
+}
+
+.cta-section.cta-footer {
+  margin-top: 3rem;
+  background: linear-gradient(135deg, rgba(212, 165, 116, 0.15) 0%, rgba(184, 149, 106, 0.15) 100%);
+  border-color: rgba(212, 165, 116, 0.4);
+}
+
+.cta-section h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #d4a574;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+}
+
+.cta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cta-card {
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(212, 165, 116, 0.3);
+}
+
+.cta-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+  border-color: rgba(212, 165, 116, 0.6);
+}
+
+.cta-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.cta-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.cta-card:hover .cta-image img {
+  transform: scale(1.05);
+}
+
+.cta-content {
+  padding: 1.5rem;
+}
+
+.cta-content h4 {
+  margin: 0 0 0.75rem 0;
+  color: #d4a574;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+  font-family: 'Inter', sans-serif;
+}
+
+.cta-content p {
+  margin: 0 0 1.25rem 0;
+  color: rgba(212, 165, 116, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  font-family: 'Inter', sans-serif;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #d4a574 0%, #b8956a 100%);
+  color: black;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background: linear-gradient(135deg, #b8956a 0%, #9d7f56 100%);
+  transform: translateY(-1px);
+  color: black;
+  text-decoration: none;
+}
+
+.cta-button.high {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+}
+
+.cta-button.high:hover {
+  background: linear-gradient(135deg, #20c997 0%, #17a2b8 100%);
+  color: white;
+}
+
+.cta-button.medium {
+  background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+  color: black;
+}
+
+.cta-button.medium:hover {
+  background: linear-gradient(135deg, #fd7e14 0%, #dc3545 100%);
+  color: white;
+}
+
+/* Kategorie-spezifische Farben */
+.cta-card.wellness {
+  border-left: 4px solid #28a745;
+}
+
+.cta-card.gastronomie {
+  border-left: 4px solid #fd7e14;
+}
+
+.cta-card.zimmer {
+  border-left: 4px solid #6f42c1;
+}
+
+.cta-card.events {
+  border-left: 4px solid #e83e8c;
+}
+
+.cta-card.hauptseite {
+  border-left: 4px solid #d4a574;
+}
+
+.cta-card.lokal {
+  border-left: 4px solid #20c997;
+}
+
+/* Blog-spezifische Integration */
+.blog-content .cta-section {
+  margin: 3rem auto;
+  max-width: 100%;
+}
+
+.blog-content {
+  font-family: 'Inter', sans-serif !important;
+  color: #4a5568 !important;
+  line-height: 1.7 !important;
+}
+
+.blog-content h1,
+.blog-content h2,
+.blog-content h3,
+.blog-content h4,
+.blog-content h5,
+.blog-content h6 {
+  color: #2d3748 !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 300 !important;
+}
+
+.blog-content h1 {
+  font-size: 2.5rem !important;
+}
+
+.blog-content h2 {
+  font-size: 2rem !important;
+}
+
+.blog-content h3 {
+  font-size: 1.5rem !important;
+}
+
+.blog-content p {
+  font-size: 1.1rem !important;
+  color: #4a5568 !important;
+  margin: 1rem 0 !important;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .cta-section {
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .cta-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .cta-section h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  .cta-content {
+    padding: 1.25rem;
+  }
+  
+  .cta-image {
+    height: 150px;
+  }
+}

@@ -1,0 +1,177 @@
+/* Beauty-Formular spezifische Mobile Optimierungen */
+
+/* Beauty Form Container */
+@media (max-width: 768px) {
+  .beauty-form-wrapper {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 50 !important;
+    background: hsl(var(--background)) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 1rem !important;
+    padding-top: calc(env(safe-area-inset-top, 1rem) + 1rem) !important;
+    padding-bottom: calc(env(safe-area-inset-bottom, 1rem) + 2rem) !important;
+  }
+  
+  /* Beauty Form Content */
+  .beauty-form-content {
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+  
+  /* Beauty Form Sections */
+  .beauty-form-section {
+    margin-bottom: 1.5rem !important;
+    padding: 1rem !important;
+    background: hsl(var(--card)) !important;
+    border: 1px solid hsl(var(--border)) !important;
+    border-radius: 0.75rem !important;
+  }
+  
+  .beauty-form-section h3 {
+    font-size: 0.875rem !important;
+    margin-bottom: 0.75rem !important;
+    padding-bottom: 0.5rem !important;
+    border-bottom: 1px solid hsl(var(--border)) !important;
+  }
+  
+  /* Beauty Input Fields */
+  .beauty-form-input {
+    font-size: 16px !important;
+    min-height: 48px !important;
+    padding: 0.75rem !important;
+    border-radius: 0.5rem !important;
+    border: 2px solid hsl(var(--border)) !important;
+    background: hsl(var(--background)) !important;
+    color: hsl(var(--foreground)) !important;
+    margin-bottom: 0.75rem !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+  }
+  
+  .beauty-form-input:focus {
+    border-color: hsl(var(--ring)) !important;
+    box-shadow: 0 0 0 2px hsl(var(--ring) / 0.2) !important;
+    outline: none !important;
+  }
+  
+  /* Beauty Date Input */
+  input[type="date"].beauty-date-input {
+    font-size: 16px !important;
+    min-height: 52px !important;
+    padding: 0.875rem 1rem !important;
+    line-height: 1.4 !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='%23666' viewBox='0 0 16 16'%3e%3cpath d='M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z'/%3e%3cpath d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/%3e%3c/svg%3e") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 12px center !important;
+    background-size: 20px !important;
+  }
+  
+  /* Beauty Time Buttons */
+  .beauty-time-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.5rem !important;
+  }
+  
+  .beauty-time-button {
+    min-height: 44px !important;
+    padding: 0.5rem 0.25rem !important;
+    font-size: 0.875rem !important;
+    border-radius: 0.5rem !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+  
+  .beauty-time-button:active {
+    transform: scale(0.95) !important;
+    transition: transform 0.1s ease !important;
+  }
+  
+  /* Beauty Submit Buttons */
+  .beauty-submit-button {
+    width: 100% !important;
+    min-height: 48px !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    border-radius: 0.75rem !important;
+    margin-bottom: 0.75rem !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+  
+  .beauty-submit-button:active {
+    transform: scale(0.98) !important;
+    transition: transform 0.1s ease !important;
+  }
+  
+  /* Beauty Radio Options */
+  .beauty-radio-option {
+    padding: 0.875rem !important;
+    border: 2px solid hsl(var(--border)) !important;
+    border-radius: 0.75rem !important;
+    margin-bottom: 0.75rem !important;
+    background: hsl(var(--card)) !important;
+    transition: all 0.2s ease !important;
+  }
+  
+  .beauty-radio-option:has(:checked) {
+    border-color: hsl(var(--primary)) !important;
+    background: hsl(var(--primary) / 0.05) !important;
+  }
+  
+  /* Beauty Textarea */
+  .beauty-textarea {
+    min-height: 80px !important;
+    font-size: 16px !important;
+    padding: 0.75rem !important;
+    resize: vertical !important;
+    border-radius: 0.5rem !important;
+  }
+  
+  /* Beauty Checkbox */
+  .beauty-checkbox-wrapper {
+    padding: 1rem !important;
+    background: hsl(var(--muted) / 0.3) !important;
+    border: 1px solid hsl(var(--border)) !important;
+    border-radius: 0.75rem !important;
+    margin: 1rem 0 !important;
+  }
+  
+  .beauty-checkbox-label {
+    font-size: 0.875rem !important;
+    line-height: 1.4 !important;
+    color: hsl(var(--muted-foreground)) !important;
+  }
+}
+
+/* Safe Area Support für Beauty Forms */
+.beauty-safe-area {
+  padding-bottom: env(safe-area-inset-bottom, 1rem) !important;
+}
+
+/* Beauty Error States */
+.beauty-error-input {
+  border-color: hsl(var(--destructive)) !important;
+  background: hsl(var(--destructive) / 0.05) !important;
+}
+
+.beauty-error-message {
+  color: hsl(var(--destructive)) !important;
+  font-size: 0.75rem !important;
+  margin-top: 0.25rem !important;
+}
+
+/* Beauty Success States */
+.beauty-success-input {
+  border-color: hsl(var(--success)) !important;
+  background: hsl(var(--success) / 0.05) !important;
+}

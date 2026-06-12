@@ -1,0 +1,101 @@
+
+/* Layout containers */
+.section-container {
+  @apply w-[95%] max-w-6xl mx-auto py-4 md:py-6;
+}
+
+.category-grid {
+  @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4;
+}
+
+/* Sidebar styles */
+.sidebar {
+  @apply h-screen fixed inset-y-0 left-0 z-50 flex w-[220px] flex-col border-r p-2 transition-all duration-300 sm:relative sm:left-auto;
+  background-color: hsl(var(--sidebar-background));
+}
+
+.sidebar-collapsed {
+  @apply w-[70px];
+}
+
+.sidebar-trigger-on {
+  @apply inline-flex h-9 w-9 items-center justify-center text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background rounded-md border border-input bg-background shadow-sm;
+}
+
+/* Image and media styles */
+img {
+  @apply rounded-md;
+}
+
+/* Conditional hover effects */
+@media (hover: hover) {
+  .hover-effect {
+    @apply transition-all duration-300;
+  }
+}
+
+/* Smooth scrolling */
+.smooth-scroll {
+  @apply scroll-smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+}
+
+/* Category and service component styles */
+.category-tile {
+  @apply bg-black border-gold/20 rounded-lg overflow-hidden transition-all duration-300;
+}
+
+.category-tile:hover {
+  @apply border-gold/40 shadow-gold/15;
+}
+
+/* Service styles */
+.service-icon {
+  @apply transition-all duration-300;
+}
+
+.hover-card:hover .service-icon {
+  @apply scale-110;
+}
+
+.service-card {
+  @apply transition-all duration-300 hover:translate-y-[-2px] bg-card shadow-elegant rounded-lg;
+}
+
+.service-card:hover .service-icon {
+  @apply text-gold-dark transform scale-115 transition-all duration-300;
+}
+
+
+/* ── Hero Section – Full-Width Professional ── */
+.hero-section {
+    @apply w-full overflow-hidden relative flex items-end;
+    min-height: 72vh;
+}
+
+@media (min-width: 768px) {
+    .hero-section {
+          min-height: 78vh;
+    }
+}
+
+.hero-section__image {
+    @apply absolute inset-0 w-full h-full object-cover;
+}
+
+.hero-section__video {
+    @apply absolute inset-0 w-full h-full object-cover;
+}
+
+.hero-section__overlay {
+    @apply absolute inset-0 bg-black/55;
+}
+
+.hero-section__content {
+    @apply relative z-10 w-full;
+}
+
+.hero-section__container {
+    @apply w-[95%] max-w-6xl mx-auto px-4 sm:px-6 pb-16 md:pb-24;
+}

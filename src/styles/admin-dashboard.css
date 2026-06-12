@@ -1,0 +1,116 @@
+/* Admin Dashboard Styles */
+
+/* Glassmorphism utility classes */
+.admin-glass-card {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(192, 160, 128, 0.1);
+  transition: all 0.3s ease;
+}
+
+.admin-glass-card:hover {
+  background: rgba(30, 41, 59, 0.6);
+  border-color: rgba(192, 160, 128, 0.3);
+  box-shadow: 0 8px 32px rgba(192, 160, 128, 0.15);
+}
+
+/* Card animations */
+@keyframes dashboard-card-appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.dashboard-card-animate {
+  animation: dashboard-card-appear 0.4s ease-out forwards;
+}
+
+/* Glow pulse effect for critical cards */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(192, 160, 128, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(192, 160, 128, 0.4);
+  }
+}
+
+.glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Smooth gradient backgrounds */
+.admin-gradient-bg {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  background-size: 200% 200%;
+}
+
+/* Stats card hover effect */
+.stats-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stats-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Activity feed timeline */
+.activity-timeline-connector {
+  position: absolute;
+  left: 30px;
+  width: 1px;
+  height: calc(100% - 32px);
+  background: linear-gradient(to bottom, transparent, rgba(148, 163, 184, 0.3), transparent);
+}
+
+/* Quick action card pulse on click */
+.quick-action-pulse:active {
+  animation: pulse-once 0.3s ease;
+}
+
+@keyframes pulse-once {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 768px) {
+  .admin-glass-card {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
+
+/* Dark theme text shadows */
+.admin-text-shadow {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Badge glow effect */
+.badge-glow {
+  box-shadow: 0 0 12px currentColor;
+}
+
+/* Smooth transitions for all interactive elements */
+.admin-interactive {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.admin-interactive:hover {
+  transform: translateY(-2px);
+}
+
+.admin-interactive:active {
+  transform: translateY(0);
+}

@@ -1,0 +1,163 @@
+/* Cinema Player Styles */
+
+/* Intro Animation */
+.cinema-intro {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.cinema-logo-glow {
+  text-shadow: 
+    0 0 20px rgba(217, 181, 103, 0.5),
+    0 0 40px rgba(217, 181, 103, 0.3),
+    0 0 60px rgba(217, 181, 103, 0.2);
+  animation: logoGlow 2s ease-in-out infinite;
+}
+
+@keyframes logoGlow {
+  0%, 100% {
+    text-shadow: 
+      0 0 20px rgba(217, 181, 103, 0.5),
+      0 0 40px rgba(217, 181, 103, 0.3),
+      0 0 60px rgba(217, 181, 103, 0.2);
+  }
+  50% {
+    text-shadow: 
+      0 0 30px rgba(217, 181, 103, 0.8),
+      0 0 60px rgba(217, 181, 103, 0.5),
+      0 0 90px rgba(217, 181, 103, 0.3);
+  }
+}
+
+/* Curtain Animations */
+.curtain-left {
+  animation: curtainOpenLeft 1s ease-in-out 0s forwards;
+}
+
+.curtain-right {
+  animation: curtainOpenRight 1s ease-in-out 0s forwards;
+}
+
+.curtain-split {
+  animation: curtainSplitFade 1s ease-in-out 0s forwards;
+}
+
+@keyframes curtainOpenLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes curtainOpenRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes curtainSplitFade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Cinema Player Container */
+.cinema-player-container {
+  position: relative;
+  background: #000;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Control Button Styles */
+.control-button {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.control-button:active {
+  transform: scale(0.95);
+}
+
+/* Glassmorphism Effect Enhancement */
+@supports (backdrop-filter: blur(20px)) {
+  .control-button,
+  .cinema-player-container [class*="backdrop-blur"] {
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+  }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .cinema-logo-glow {
+    font-size: 3rem;
+  }
+  
+  .control-button {
+    padding: 0.75rem;
+  }
+  
+  /* Reduce blur on mobile for performance */
+  @supports (backdrop-filter: blur(12px)) {
+    .cinema-player-container [class*="backdrop-blur"] {
+      backdrop-filter: blur(12px) saturate(150%);
+      -webkit-backdrop-filter: blur(12px) saturate(150%);
+    }
+  }
+}
+
+/* Theater Mode (Desktop) */
+@media (min-width: 1024px) {
+  .cinema-player-container video {
+    max-width: 90vw;
+    max-height: 90vh;
+    margin: 0 auto;
+  }
+}
+
+/* Safe Area Support for iOS */
+@supports (padding: max(0px)) {
+  .cinema-player-container {
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
+  }
+}
+
+/* Prevent text selection during gestures */
+.cinema-player-container * {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Performance Optimizations */
+.cinema-player-container video {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.control-button,
+.curtain-left,
+.curtain-right {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}

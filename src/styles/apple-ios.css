@@ -1,0 +1,251 @@
+/* Apple iOS Design System Tokens */
+
+:root {
+  /* Apple iOS System Colors - Light Mode */
+  --ios-blue: 213 94% 68%;
+  --ios-green: 151 67% 48%;
+  --ios-orange: 28 100% 60%;
+  --ios-red: 4 90% 58%;
+  --ios-gray: 237 6% 27%;
+  --ios-gray2: 237 7% 38%;
+  --ios-gray3: 237 8% 48%;
+  --ios-gray4: 237 9% 58%;
+  --ios-gray5: 237 10% 68%;
+  --ios-gray6: 237 11% 78%;
+
+  /* iOS System Backgrounds */
+  --ios-system-background: 0 0% 100%;
+  --ios-secondary-system-background: 0 0% 96%;
+  --ios-tertiary-system-background: 0 0% 94%;
+  --ios-system-grouped-background: 0 0% 94%;
+  --ios-secondary-system-grouped-background: 0 0% 100%;
+  --ios-tertiary-system-grouped-background: 0 0% 96%;
+
+  /* iOS System Fills */
+  --ios-system-fill: 120 5% 76% / 0.2;
+  --ios-secondary-system-fill: 120 5% 76% / 0.16;
+  --ios-tertiary-system-fill: 120 5% 76% / 0.12;
+  --ios-quaternary-system-fill: 120 5% 76% / 0.08;
+
+  /* Apple Form Specific Variables */
+  --apple-input-height: 56px;
+  --apple-button-height: 50px;
+  --apple-border-radius: 12px;
+  --apple-large-radius: 16px;
+  --apple-small-radius: 8px;
+  --apple-blur: 20px;
+  --apple-transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Apple iOS System Colors - Dark Mode */
+    --ios-blue: 213 84% 68%;
+    --ios-green: 151 57% 48%;
+    --ios-orange: 28 90% 60%;
+    --ios-red: 4 80% 58%;
+    --ios-gray: 237 5% 83%;
+    --ios-gray2: 237 6% 73%;
+    --ios-gray3: 237 7% 63%;
+    --ios-gray4: 237 8% 53%;
+    --ios-gray5: 237 9% 43%;
+    --ios-gray6: 237 10% 33%;
+
+    /* iOS System Backgrounds - Dark */
+    --ios-system-background: 0 0% 0%;
+    --ios-secondary-system-background: 237 8% 7%;
+    --ios-tertiary-system-background: 237 8% 12%;
+    --ios-system-grouped-background: 0 0% 0%;
+    --ios-secondary-system-grouped-background: 237 8% 7%;
+    --ios-tertiary-system-grouped-background: 237 8% 12%;
+
+    /* iOS System Fills - Dark */
+    --ios-system-fill: 120 5% 76% / 0.36;
+    --ios-secondary-system-fill: 120 5% 76% / 0.32;
+    --ios-tertiary-system-fill: 120 5% 76% / 0.24;
+    --ios-quaternary-system-fill: 120 5% 76% / 0.18;
+  }
+}
+
+/* Apple iOS Glass Effects */
+.apple-glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(var(--apple-blur));
+  -webkit-backdrop-filter: blur(var(--apple-blur));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.apple-glass-dark {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(var(--apple-blur));
+  -webkit-backdrop-filter: blur(var(--apple-blur));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Apple iOS Typography */
+.apple-text-title1 {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.apple-text-title2 {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+.apple-text-title3 {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.apple-text-headline {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+}
+
+.apple-text-body {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.apple-text-callout {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.apple-text-subheadline {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.apple-text-footnote {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.apple-text-caption1 {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.apple-text-caption2 {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+/* Apple iOS Touch Targets */
+.apple-touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Apple iOS Haptic Feedback Simulation */
+@keyframes haptic-light {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.98); }
+  100% { transform: scale(1); }
+}
+
+@keyframes haptic-medium {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.96); }
+  100% { transform: scale(1); }
+}
+
+@keyframes haptic-heavy {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.94); }
+  100% { transform: scale(1); }
+}
+
+.apple-haptic-light:active {
+  animation: haptic-light 0.1s ease-out;
+}
+
+.apple-haptic-medium:active {
+  animation: haptic-medium 0.1s ease-out;
+}
+
+.apple-haptic-heavy:active {
+  animation: haptic-heavy 0.1s ease-out;
+}
+
+/* Apple iOS Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .apple-glass {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.9);
+  }
+  
+  .apple-glass-dark {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Apple iOS Safe Area Support */
+.apple-safe-area {
+  padding-top: env(safe-area-inset-top);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+}
+
+.apple-safe-area-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.apple-safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Apple iOS Dynamic Type Support */
+@media (prefers-color-scheme: light) {
+  .apple-dynamic-bg {
+    background: hsl(var(--ios-system-background));
+  }
+  
+  .apple-dynamic-bg-secondary {
+    background: hsl(var(--ios-secondary-system-background));
+  }
+  
+  .apple-dynamic-bg-tertiary {
+    background: hsl(var(--ios-tertiary-system-background));
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .apple-dynamic-bg {
+    background: hsl(var(--ios-system-background));
+  }
+  
+  .apple-dynamic-bg-secondary {
+    background: hsl(var(--ios-secondary-system-background));
+  }
+  
+  .apple-dynamic-bg-tertiary {
+    background: hsl(var(--ios-tertiary-system-background));
+  }
+}

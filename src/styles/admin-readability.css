@@ -1,0 +1,313 @@
+/* ============================================
+   GLOBAL READABILITY OVERRIDES
+   Force legible contrast in Admin (light) and
+   on dark public pages where gold/opacity tokens
+   collapsed against their background.
+   ============================================ */
+
+/* ---------- ADMIN (light surfaces) ---------- */
+
+.admin-shell,
+.luxe-bg {
+  color: hsl(220 13% 18%);
+}
+
+/* Eyebrow / section labels in admin */
+.admin-shell .eyebrow-apple,
+.admin-shell .eyebrow-gold,
+.luxe-bg .eyebrow-apple,
+.luxe-bg .eyebrow-gold {
+  color: hsl(220 13% 25%) !important;
+  opacity: 1 !important;
+}
+
+/* Force ALL gold/amber/foreground-with-opacity text dark on light surfaces */
+.admin-shell .text-gold,
+.admin-shell [class*="text-gold/"],
+.admin-shell [class*="text-amber-"],
+.admin-shell [class*="text-stone-"],
+.admin-shell .text-muted-foreground,
+.admin-shell [class*="text-foreground/"],
+.luxe-bg .text-gold,
+.luxe-bg [class*="text-gold/"],
+.luxe-bg [class*="text-amber-"],
+.luxe-bg [class*="text-stone-"],
+.luxe-bg [class*="text-foreground/"] {
+  color: hsl(220 13% 22%) !important;
+  opacity: 1 !important;
+}
+
+/* Gold gradient text → solid dark in admin */
+.admin-shell .gold-shimmer-text,
+.admin-shell .gold-text,
+.luxe-bg .gold-shimmer-text,
+.luxe-bg .gold-text {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: hsl(220 13% 18%) !important;
+  color: hsl(220 13% 18%) !important;
+  font-weight: 700;
+}
+
+/* Cards / glass surfaces opaque & bordered */
+.admin-shell .glass-card,
+.admin-shell .cine-glass,
+.admin-shell .cine-surface,
+.luxe-bg .glass-card,
+.luxe-bg .cine-glass,
+.luxe-bg .cine-surface {
+  background: #ffffff !important;
+  color: hsl(220 13% 18%) !important;
+  border: 1px solid hsl(220 13% 88%) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Primary dark buttons (Speichern, Generieren etc.) */
+.admin-shell button.btn-luxe,
+.admin-shell .btn-luxe,
+.luxe-bg .btn-luxe {
+  background: hsl(220 13% 12%) !important;
+  color: #ffffff !important;
+  border: 1px solid hsl(220 13% 12%) !important;
+}
+.admin-shell button.btn-luxe:hover,
+.admin-shell .btn-luxe:hover {
+  background: hsl(220 13% 22%) !important;
+}
+
+/* Buttons that ended up bg-amber-300/0..1 (= invisible) → ensure dark text on visible bg */
+.admin-shell [class*="bg-amber-300/"],
+.admin-shell [class*="bg-amber-200/"],
+.admin-shell [class*="bg-stone-900/"],
+.admin-shell [class*="bg-stone-800/"],
+.admin-shell [class*="bg-black/"],
+.luxe-bg [class*="bg-amber-300/"],
+.luxe-bg [class*="bg-stone-900/"] {
+  background-color: hsl(220 13% 96%) !important;
+  color: hsl(220 13% 18%) !important;
+  border: 1px solid hsl(220 13% 86%) !important;
+}
+
+/* Status badges (e.g. "Fehler") */
+.admin-shell .badge,
+.admin-shell [class*="bg-red-"],
+.luxe-bg [class*="bg-red-"] {
+  color: #ffffff !important;
+}
+
+/* Inputs / textarea / select clearly visible */
+.admin-shell input,
+.admin-shell textarea,
+.admin-shell select,
+.luxe-bg input,
+.luxe-bg textarea,
+.luxe-bg select {
+  background: #ffffff !important;
+  color: hsl(220 13% 12%) !important;
+  border: 1px solid hsl(220 13% 80%) !important;
+  caret-color: hsl(220 13% 12%) !important;
+}
+.admin-shell input::placeholder,
+.admin-shell textarea::placeholder {
+  color: hsl(220 9% 50%) !important;
+  opacity: 1 !important;
+}
+
+/* Headings inside admin cards */
+.admin-shell h1,
+.admin-shell h2,
+.admin-shell h3,
+.luxe-bg h1,
+.luxe-bg h2,
+.luxe-bg h3 {
+  color: hsl(220 13% 12%) !important;
+}
+
+/* Mobile admin: bigger taps, no iOS zoom */
+@media (max-width: 768px) {
+  .admin-shell input,
+  .admin-shell textarea,
+  .admin-shell select {
+    font-size: 16px !important;
+    min-height: 44px !important;
+  }
+  .admin-shell .btn-luxe,
+  .admin-shell button[type="submit"] {
+    min-height: 44px !important;
+  }
+}
+
+/* ---------- PUBLIC / LANDING (dark surfaces) ---------- */
+
+/* Trust cards & generic "glass on dark" cards on the marketing pages.
+   They appeared invisible because both bg & text were dark. */
+.cine-glass,
+.glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+/* Beige/champagne primary buttons on dark hero surfaces:
+   ensure text is dark, not white-on-white. */
+a.btn-champagne,
+button.btn-champagne,
+.btn-champagne,
+[class*="bg-champagne"],
+[class*="bg-cream"],
+[class*="bg-ivory"] {
+  color: hsl(220 13% 12%) !important;
+}
+
+/* Generic "Anfragen" CTA on room cards (text-on-light-bg) */
+[data-anfragen-cta],
+a[href*="/tagungsraeume"].is-light,
+button.is-light {
+  color: hsl(220 13% 12%) !important;
+}
+
+/* L × B × H pill on Tagungsräume */
+.dimensions-pill,
+[data-dim-pill] {
+  background: rgba(255, 255, 255, 0.10) !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+}
+
+/* ---------- ADMIN DARK COCKPIT FINAL CONTRAST LAYER ----------
+   admin-luxe-flat.css defines the actual dark cockpit. This file is imported
+   after index.css, so it must not re-force light-theme dark text in admin. */
+.admin-shell {
+  color: hsl(38 35% 93%) !important;
+}
+
+.admin-shell h1,
+.admin-shell h2,
+.admin-shell h3,
+.admin-shell h4,
+.admin-shell h5,
+.admin-shell h6,
+.admin-shell .text-foreground,
+.admin-shell .text-card-foreground,
+.admin-shell .text-white,
+.admin-shell [class*="text-white/"] {
+  color: hsl(38 35% 94%) !important;
+}
+
+.admin-shell p,
+.admin-shell span,
+.admin-shell div,
+.admin-shell label,
+.admin-shell small {
+  border-color: inherit;
+}
+
+.admin-shell .text-muted-foreground,
+.admin-shell [class*="text-foreground/5"],
+.admin-shell [class*="text-foreground/6"],
+.admin-shell [class*="text-foreground/7"],
+.admin-shell [class*="text-zinc-4"],
+.admin-shell [class*="text-zinc-5"],
+.admin-shell [class*="text-gray-5"],
+.admin-shell [class*="text-slate-4"],
+.admin-shell [class*="text-slate-5"],
+.admin-shell [class*="text-stone-4"],
+.admin-shell [class*="text-stone-5"] {
+  color: hsl(38 15% 76% / 0.9) !important;
+}
+
+.admin-shell .text-gold,
+.admin-shell [class*="text-gold/"],
+.admin-shell [class*="text-amber-"],
+.admin-shell .eyebrow-apple,
+.admin-shell .eyebrow-gold {
+  color: hsl(38 54% 78%) !important;
+  opacity: 1 !important;
+}
+
+.admin-shell .gold-shimmer-text,
+.admin-shell .gold-text {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: hsl(38 54% 78%) !important;
+  color: hsl(38 54% 78%) !important;
+}
+
+.admin-shell .glass-card,
+.admin-shell .cine-glass,
+.admin-shell .cine-surface,
+.admin-shell .bg-card,
+.admin-shell .bg-background,
+.admin-shell .bg-popover {
+  background-color: hsl(30 10% 7%) !important;
+  color: hsl(38 35% 94%) !important;
+  border-color: hsl(38 26% 32% / 0.55) !important;
+}
+
+.admin-shell input,
+.admin-shell textarea,
+.admin-shell select {
+  background: hsl(30 10% 7%) !important;
+  color: hsl(38 35% 94%) !important;
+  -webkit-text-fill-color: hsl(38 35% 94%) !important;
+  border-color: hsl(38 26% 38% / 0.8) !important;
+  caret-color: hsl(38 35% 94%) !important;
+  color-scheme: dark !important;
+}
+
+.admin-shell input *,
+.admin-shell textarea *,
+.admin-shell select * {
+  color: hsl(38 35% 94%) !important;
+  -webkit-text-fill-color: hsl(38 35% 94%) !important;
+}
+
+.admin-shell input::placeholder,
+.admin-shell textarea::placeholder {
+  color: hsl(38 14% 72% / 0.65) !important;
+  -webkit-text-fill-color: hsl(38 14% 72% / 0.65) !important;
+}
+
+.admin-shell input:-webkit-autofill,
+.admin-shell textarea:-webkit-autofill,
+.admin-shell select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px hsl(30 10% 7%) inset !important;
+  -webkit-text-fill-color: hsl(38 35% 94%) !important;
+  caret-color: hsl(38 35% 94%) !important;
+}
+
+.admin-shell label,
+.admin-shell label span,
+.admin-shell [role="checkbox"] + span,
+.admin-shell [data-radix-collection-item],
+.admin-shell [cmdk-item],
+.admin-shell [role="option"] {
+  color: hsl(38 30% 90%) !important;
+}
+
+.admin-shell [role="checkbox"],
+.admin-shell button[role="checkbox"] {
+  border-color: hsl(38 42% 68% / 0.65) !important;
+  color: hsl(38 35% 94%) !important;
+}
+
+.admin-shell [role="checkbox"][data-state="checked"],
+.admin-shell button[role="checkbox"][data-state="checked"] {
+  background-color: hsl(38 54% 76%) !important;
+  color: hsl(30 12% 8%) !important;
+}
+
+.admin-shell .bg-gold,
+.admin-shell [class*="bg-gold"],
+.admin-shell .text-background,
+.admin-shell [class*="text-background"] {
+  color: hsl(30 12% 8%) !important;
+  -webkit-text-fill-color: hsl(30 12% 8%) !important;
+}
+
+.admin-shell button:not([class*="bg-gold"]):not([class*="bg-amber-"]):not([class*="bg-white"]):not([class*="bg-cream"]),
+.admin-shell a:not([class*="bg-gold"]):not([class*="bg-amber-"]):not([class*="bg-white"]):not([class*="bg-cream"]) {
+  color: inherit;
+}

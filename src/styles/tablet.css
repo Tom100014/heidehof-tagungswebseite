@@ -1,0 +1,113 @@
+
+/* Tablet-specific styles - for devices between 768px and 1024px */
+
+/* Only apply these styles for tablet-sized devices */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Base layout improvements for tablets */
+  body {
+    font-size: 15px;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    /* Removed background colors to prevent overriding the dark theme */
+  }
+  
+  /* Optimized container width for tablets */
+  .section-container {
+    @apply w-[90%] max-w-3xl mx-auto py-5;
+  }
+  
+  /* Better grid layouts for tablets */
+  .category-grid {
+    @apply grid-cols-3 gap-4;
+  }
+  
+  /* Improved form inputs for tablets */
+  input, 
+  select, 
+  textarea {
+    @apply py-3 px-3.5;
+    font-size: 15px !important; /* Prevent zoom on iOS tablets */
+    min-height: 48px; /* Better touch targets for tablet */
+  }
+  
+  /* Optimized headings for tablet displays */
+  h1 { @apply text-2xl mb-4; }
+  h2 { @apply text-xl mb-3; }
+  h3 { @apply text-lg mb-2; }
+  
+  /* Enhanced button sizes for tablets */
+  button,
+  a[role="button"],
+  .interactive {
+    @apply min-h-11 py-2.5 px-4;
+  }
+  
+  /* Card and layout improvements */
+  .card, .service-card {
+    @apply p-4 rounded-lg;
+    /* Removed background colors to prevent overriding the dark theme */
+  }
+  
+  /* Form group spacing */
+  .form-group {
+    @apply mb-4;
+  }
+}
+
+/* Tablet-specific touch optimizations */
+.tablet-touch-target {
+  @apply min-h-12 min-w-12 p-3;
+  touch-action: manipulation;
+}
+
+/* Tablet-specific form styling */
+.tablet-form .form-field {
+  @apply mb-4;
+}
+
+.tablet-form label {
+  @apply text-sm font-medium mb-2 block;
+}
+
+.tablet-form input,
+.tablet-form select,
+.tablet-form textarea {
+  @apply w-full text-base py-3 px-4 rounded-md;
+  min-height: 48px;
+}
+
+/* Content layouts for tablets */
+.tablet-content-grid {
+  @apply grid-cols-2 gap-4;
+}
+
+/* Flexible layout container for tablets */
+.tablet-container {
+  @apply px-4 w-full max-w-2xl mx-auto;
+}
+
+/* Better scrollable content for tablets */
+.tablet-scrollable {
+  max-height: calc(100vh - 180px);
+  @apply overflow-y-auto;
+}
+
+/* Tablet-optimized status indicators */
+.tablet-status {
+  @apply inline-flex items-center justify-center px-3 py-1 rounded-full text-sm font-medium;
+}
+
+/* Enhanced bottom spacing accounting for tablet UI */
+.tablet-bottom-spacing {
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+}
+
+/* Tablet form layout - split forms into 2 columns where appropriate */
+.tablet-form-grid {
+  @apply grid grid-cols-2 gap-4;
+}
+
+/* Handle tablet form columns responsively */
+.tablet-form-grid .full-width {
+  @apply col-span-2;
+}

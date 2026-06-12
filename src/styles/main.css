@@ -1,0 +1,87 @@
+
+/* Main CSS file that imports all style modules */
+
+/* Custom style modules */
+@import './layout.css';
+@import './templates/glossy-modern.css';
+@import './components.css'; /* Add components styles */
+@import './dialog-overrides.css';
+@import './mobile.css';
+@import './tablet.css'; /* Add tablet styles */
+@import './mobile-safe-area.css'; /* Mobile safe area and overlap fixes */
+
+
+/* Editorial warm theme */
+:root {
+  color-scheme: dark;
+}
+
+html, body, #root {
+  background-color: hsl(var(--background)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Animation utilities */
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s infinite ease-in-out;
+}
+
+.animate-float {
+  animation: float 6s infinite ease-in-out;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
+}
+
+/* Typography enhancements */
+.font-serif {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Theme-specific styles */
+.dark .hover-card:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Fix specific components on welcome page - Using direct background color instead of @apply */
+.welcome-page .bg-background {
+  background-color: #080808 !important;
+}
+
+/* Professional scrollbar styling */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thumb-slate-600 {
+  scrollbar-color: #475569 transparent;
+}
+
+.scrollbar-track-transparent {
+  scrollbar-track-color: transparent;
+}
+
+/* Webkit scrollbar styling */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thumb-slate-600::-webkit-scrollbar-thumb {
+  background-color: #475569;
+  border-radius: 3px;
+}
+
+.scrollbar-track-transparent::-webkit-scrollbar-track {
+  background: transparent;
+}

@@ -1,0 +1,98 @@
+/* Performance Monitoring & Debug Styles */
+
+/* Debug class to identify elements with heavy blur */
+.debug-blur {
+  outline: 2px solid red !important;
+  position: relative;
+}
+
+.debug-blur::after {
+  content: "HEAVY BLUR";
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: red;
+  color: white;
+  font-size: 10px;
+  padding: 2px 4px;
+  z-index: 1000;
+}
+
+/* Performance-first utility classes */
+.performance-first {
+  /* Optimize for performance over visual effects */
+  backdrop-filter: none;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* CPU-friendly alternatives */
+.cpu-friendly-glass {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.03)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* GPU-accelerated alternatives */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Monitor performance impact */
+@media (prefers-reduced-motion: reduce) {
+  .debug-blur::after {
+    content: "BLUR DISABLED - REDUCED MOTION";
+  }
+}
+
+/* Development-only performance warnings */
+[data-blur-intensity="high"] {
+  border: 2px dashed orange;
+}
+
+[data-blur-intensity="extreme"] {
+  border: 2px dashed red;
+}
+
+/* Performance-conscious animation classes */
+.animate-performance-safe {
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+/* Memory-efficient animations */
+.fade-performance {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.fade-performance.active {
+  opacity: 1;
+}
+
+/* Scale back blur on low-end devices */
+@media (max-width: 480px) and (max-height: 800px) {
+  /* Further reduce blur on small, likely low-end devices */
+  .blur-heavy,
+  .blur-medium {
+    backdrop-filter: blur(2px) !important;
+    -webkit-backdrop-filter: blur(2px) !important;
+  }
+}
+
+/* Battery-saving mode detection (experimental) */
+@media (prefers-reduced-data: reduce) {
+  .blur-light,
+  .blur-medium,
+  .blur-heavy {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(0, 0, 0, 0.9) !important;
+  }
+}

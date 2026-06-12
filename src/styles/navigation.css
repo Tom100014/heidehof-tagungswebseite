@@ -1,0 +1,154 @@
+/* Professional Navigation Styles */
+
+/* Touch target optimization for mobile */
+.mobile-touch-target {
+  @apply min-h-11 min-w-11;
+}
+
+/* Navigation container animations */
+.nav-container {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* Breadcrumb animations */
+.breadcrumb-enter {
+  @apply opacity-0 transform translate-x-4;
+}
+
+.breadcrumb-enter-active {
+  @apply opacity-100 transform translate-x-0 transition-all duration-200;
+}
+
+.breadcrumb-exit {
+  @apply opacity-100 transform translate-x-0;
+}
+
+.breadcrumb-exit-active {
+  @apply opacity-0 transform translate-x-4 transition-all duration-200;
+}
+
+/* Navigation button hover effects */
+.nav-button {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.nav-button:hover {
+  @apply transform scale-105;
+}
+
+.nav-button:active {
+  @apply transform scale-95;
+}
+
+/* Safe area utilities for different devices */
+.safe-area-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.safe-area-left {
+  padding-left: env(safe-area-inset-left);
+}
+
+.safe-area-right {
+  padding-right: env(safe-area-inset-right);
+}
+
+.safe-area-inset-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+/* Navigation backdrop blur effects */
+.nav-backdrop {
+  @apply backdrop-blur-md bg-opacity-95;
+  backdrop-filter: blur(8px) saturate(150%);
+  -webkit-backdrop-filter: blur(8px) saturate(150%);
+}
+
+/* Loading skeleton for navigation */
+.nav-skeleton {
+  @apply animate-pulse bg-gradient-to-r from-muted via-muted/50 to-muted rounded;
+}
+
+/* Focus styles for accessibility */
+.nav-focus {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+}
+
+/* Navigation text truncation */
+.nav-text-truncate {
+  @apply truncate max-w-[200px] sm:max-w-none;
+}
+
+/* Responsive navigation utilities */
+@media (max-width: 640px) {
+  .nav-mobile-hide {
+    @apply hidden;
+  }
+  
+  .nav-mobile-show {
+    @apply block sm:hidden;
+  }
+}
+
+@media (min-width: 641px) {
+  .nav-desktop-hide {
+    @apply hidden;
+  }
+  
+  .nav-desktop-show {
+    @apply hidden sm:block;
+  }
+}
+
+/* Navigation z-index layers */
+.nav-z-base {
+  z-index: 40;
+}
+
+.nav-z-elevated {
+  z-index: 50;
+}
+
+.nav-z-modal {
+  z-index: 60;
+}
+
+/* Professional navigation color variants */
+.nav-variant-default {
+  @apply bg-background/95 border-border/20 text-foreground;
+}
+
+.nav-variant-admin {
+  background: hsl(var(--ios-blue)) !important;
+  border-color: hsl(var(--ios-blue) / 0.8) !important;
+  color: white !important;
+}
+
+.nav-variant-service {
+  @apply bg-black border-gold/10 text-gold;
+}
+
+.nav-variant-welcome {
+  @apply bg-background/95 border-primary/20 text-gold;
+}
+
+/* Navigation shadow effects */
+.nav-shadow-default {
+  @apply shadow-sm;
+}
+
+.nav-shadow-elevated {
+  @apply shadow-lg;
+}
+
+.nav-shadow-service {
+  @apply shadow-sm shadow-gold/10;
+}
+
+.nav-shadow-welcome {
+  @apply shadow-dark;
+}

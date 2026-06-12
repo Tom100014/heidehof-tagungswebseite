@@ -1,0 +1,99 @@
+/* DIALOG SOLID BACKGROUND OVERRIDES */
+/* This file ensures dialogs have solid, non-transparent backgrounds */
+
+/* Force solid background for all dialog overlays */
+[data-radix-dialog-overlay],
+.radix-dialog-overlay {
+  background: rgba(0, 0, 0, 0.85) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Modern iOS-style dialog for date picker - dark theme */
+[data-radix-dialog-content][style*="rgb(30, 30, 32)"],
+.modern-date-picker-dialog {
+  background: rgb(30, 30, 32) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+}
+
+/* Default dialog style for other dialogs - NO GLASS EFFECT */
+[data-radix-dialog-content]:not([style*="rgb(30, 30, 32)"]) {
+  background: rgb(0, 0, 0) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid rgba(217, 181, 103, 0.3) !important;
+  opacity: 1 !important;
+}
+
+/* Ensure calendar container has solid BLACK background with WHITE text */
+.calendar-dialog-wrapper {
+  background: #000000 !important;
+  border-radius: 12px;
+  padding: 16px;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Calendar specific overrides - BLACK background */
+.calendar-dialog-wrapper .rdp {
+  background: #000000 !important;
+}
+
+/* Ensure all calendar text is WHITE and visible */
+.calendar-dialog-wrapper .rdp * {
+  color: #FFFFFF !important;
+}
+
+.calendar-dialog-wrapper .rdp-caption_label {
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+}
+
+.calendar-dialog-wrapper .rdp-head_cell {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.calendar-dialog-wrapper .rdp-day {
+  color: #FFFFFF !important;
+}
+
+.calendar-dialog-wrapper .rdp-day:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #FFFFFF !important;
+}
+
+.calendar-dialog-wrapper .rdp-day_selected {
+  background-color: #D9B567 !important;
+  color: #000000 !important;
+}
+
+.calendar-dialog-wrapper .rdp-day_today {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+/* Navigation buttons */
+.calendar-dialog-wrapper .rdp-nav_button {
+  background: transparent !important;
+  color: #D9B567 !important;
+  border: none !important;
+}
+
+.calendar-dialog-wrapper .rdp-nav_button:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Disabled dates */
+.calendar-dialog-wrapper .rdp-day_disabled {
+  color: rgba(255, 255, 255, 0.3) !important;
+  opacity: 0.5 !important;
+}
+
+/* Outside dates */
+.calendar-dialog-wrapper .rdp-day_outside {
+  color: rgba(255, 255, 255, 0.3) !important;
+  opacity: 0.5 !important;
+}

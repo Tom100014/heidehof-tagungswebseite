@@ -1,0 +1,2 @@
+-- Create edge function to handle ElevenLabs signed URL generation
+-- This will be used by the KI Assistant to authenticate with ElevenLabs

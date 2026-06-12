@@ -1,0 +1,224 @@
+/* iOS Mobile Optimizations for Professional App Experience */
+
+/* Global iOS Safe Area Variables */
+:root {
+  --ios-safe-top: env(safe-area-inset-top, 0px);
+  --ios-safe-bottom: env(safe-area-inset-bottom, 0px);
+  --ios-safe-left: env(safe-area-inset-left, 0px);
+  --ios-safe-right: env(safe-area-inset-right, 0px);
+}
+
+/* iOS Device Detection and Base Styles */
+.ios-device {
+  /* Prevent overscroll bounce */
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+  
+  /* iOS-specific touch optimizations */
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* iOS Safe Area Containers */
+.ios-safe-container {
+  padding-top: var(--ios-safe-top);
+  padding-bottom: var(--ios-safe-bottom);
+  padding-left: var(--ios-safe-left);
+  padding-right: var(--ios-safe-right);
+}
+
+.ios-safe-content {
+  margin-top: var(--ios-safe-top);
+  margin-bottom: var(--ios-safe-bottom);
+}
+
+/* iOS Viewport Height Fixes */
+.ios-full-height {
+  height: 100vh;
+  height: calc(100vh - var(--ios-safe-top) - var(--ios-safe-bottom));
+  height: 100dvh; /* Dynamic viewport height for iOS */
+}
+
+/* iOS Status Bar Specific Adjustments */
+@supports (top: env(safe-area-inset-top)) {
+  .ios-status-bar-offset {
+    top: env(safe-area-inset-top);
+  }
+  
+  .ios-header-padding {
+    padding-top: calc(env(safe-area-inset-top) + 1rem);
+  }
+  
+  .ios-sticky-nav {
+    top: env(safe-area-inset-top);
+    position: sticky;
+    z-index: 50;
+  }
+}
+
+/* iOS Dynamic Island & Notch Specific */
+@media screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) {
+  /* iPhone 15 Pro Max, 14 Pro Max */
+  .ios-dynamic-island-device .ios-header-padding {
+    padding-top: calc(54px + 2rem);
+  }
+  
+  .ios-dynamic-island-device .ios-sticky-nav {
+    top: 54px;
+  }
+}
+
+@media screen and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) {
+  /* iPhone 15 Pro, 14 Pro */
+  .ios-dynamic-island-device .ios-header-padding {
+    padding-top: calc(54px + 2rem);
+  }
+  
+  .ios-dynamic-island-device .ios-sticky-nav {
+    top: 54px;
+  }
+}
+
+@media screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  /* iPhone X, XS, 11 Pro */
+  .ios-notch-device .ios-header-padding {
+    padding-top: calc(44px + 2rem);
+  }
+  
+  .ios-notch-device .ios-sticky-nav {
+    top: 44px;
+  }
+}
+
+/* Professional Touch Targets for iOS */
+.ios-touch-professional {
+  min-height: 44px;
+  min-width: 44px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  cursor: pointer;
+}
+
+.ios-touch-professional:active {
+  transform: scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+/* iOS Text Rendering Optimization */
+.ios-text-optimize {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeReadability;
+  font-feature-settings: "kern" 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* iOS Scrolling Performance */
+.ios-scroll-container {
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+}
+
+/* iOS Form and Input Optimizations */
+.ios-input-optimize {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 12px;
+  font-size: 16px; /* Prevents zoom on focus */
+  padding: 12px 16px;
+  min-height: 44px;
+}
+
+/* iOS Button Optimizations */
+.ios-button-optimize {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 12px;
+  min-height: 44px;
+  min-width: 44px;
+  font-size: 16px;
+  font-weight: 600;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* iOS Focus Indicators */
+.ios-focus-indicator:focus-visible {
+  outline: 3px solid hsl(var(--gold));
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* iOS Dark Mode Specific Adjustments */
+@media (prefers-color-scheme: dark) {
+  .ios-device {
+    color-scheme: dark;
+  }
+  
+  .ios-text-optimize {
+    color: hsl(var(--foreground));
+  }
+}
+
+/* iOS Landscape Orientation Optimizations */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+  .ios-landscape-header {
+    padding-top: calc(var(--ios-safe-top) + 0.5rem);
+    padding-bottom: 0.5rem;
+  }
+  
+  .ios-landscape-nav {
+    padding: 0.5rem 1rem;
+  }
+  
+  .ios-landscape-text {
+    font-size: 0.9em;
+    line-height: 1.4;
+  }
+}
+
+/* iOS Performance Optimizations */
+.ios-performance-optimize {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* iOS Safe Area Debug (Development Only) */
+.ios-safe-area-debug {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.ios-safe-area-debug::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--ios-safe-top);
+  background: rgba(255, 0, 0, 0.3);
+}
+
+.ios-safe-area-debug::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--ios-safe-bottom);
+  background: rgba(0, 255, 0, 0.3);
+}

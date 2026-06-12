@@ -1,0 +1,3 @@
+/* Font loading intentionally uses the system stack.
+   The previous file referenced stale external Google Font assets and caused
+   404 console errors on every admin load. */

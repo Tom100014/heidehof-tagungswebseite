@@ -1,0 +1,1010 @@
+/* ============================================
+   ADMIN LUXE → FLAT WHITE OVERRIDES
+   Konvertiert die "luxe" Admin-Seiten (gold/dark)
+   in den hellen, einheitlichen Admin-Stil.
+   ============================================ */
+
+/* Container -------------------------------------------------- */
+.luxe-bg {
+  background: hsl(var(--background)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Cards (nur innerhalb Admin-Luxe-Container scopen!) ---------- */
+.luxe-bg .glass-card,
+.luxe-bg .cine-glass,
+.luxe-bg .cine-surface {
+  background: hsl(var(--card)) !important;
+  color: hsl(var(--card-foreground)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: 0 1px 3px 0 hsl(var(--foreground) / 0.05),
+              0 1px 2px -1px hsl(var(--foreground) / 0.05) !important;
+}
+
+/* "Gold" Text → Dunkelgrau (nur in Admin) -------------------- */
+.luxe-bg .gold-text {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  color: hsl(var(--foreground)) !important;
+  font-weight: 600;
+}
+
+/* Divider (nur in Admin) ------------------------------------- */
+.luxe-bg .gold-divider,
+.luxe-bg .cine-divider {
+  background: hsl(var(--border)) !important;
+  height: 1px !important;
+}
+
+/* Primärer Button ------------------------------------------- */
+.btn-luxe {
+  background: hsl(var(--primary)) !important;
+  color: hsl(var(--primary-foreground)) !important;
+  box-shadow: 0 1px 2px 0 hsl(var(--foreground) / 0.08) !important;
+  border-radius: 0.5rem !important;
+  padding: 0.5rem 1rem !important;
+  font-weight: 500 !important;
+  letter-spacing: normal !important;
+  font-size: 0.875rem !important;
+}
+.btn-luxe:hover {
+  background: hsl(var(--primary) / 0.9) !important;
+  transform: none !important;
+}
+
+/* Tailwind amber/stone Klassen innerhalb der Luxe-Container --- */
+.luxe-bg [class*="text-amber-50"],
+.luxe-bg [class*="text-amber-100"],
+.luxe-bg [class*="text-amber-200"],
+.luxe-bg [class*="text-amber-300"],
+.luxe-bg [class*="text-stone-"],
+.luxe-bg .text-white {
+  color: hsl(var(--foreground)) !important;
+}
+
+/* gedämpfter Text (mit "/60", "/70", "/80" Opacity) */
+.luxe-bg [class*="text-amber-100/"],
+.luxe-bg [class*="text-amber-200/"],
+.luxe-bg [class*="text-amber-300/"] {
+  color: hsl(var(--muted-foreground)) !important;
+}
+
+/* dark backgrounds → muted */
+.luxe-bg [class*="bg-stone-"],
+.luxe-bg [class*="bg-amber-300/1"],
+.luxe-bg [class*="bg-amber-300/0"],
+.luxe-bg [class*="bg-black"] {
+  background-color: hsl(var(--muted)) !important;
+}
+
+/* gold/amber als Primär-Highlight (Buttons, aktive Tabs) */
+.luxe-bg .bg-amber-300,
+.luxe-bg [class*="bg-amber-300 "] {
+  background-color: hsl(var(--primary)) !important;
+  color: hsl(var(--primary-foreground)) !important;
+}
+
+/* Borders */
+.luxe-bg [class*="border-amber"],
+.luxe-bg [class*="border-white"] {
+  border-color: hsl(var(--border)) !important;
+}
+
+/* Inputs in luxe-Container */
+.luxe-bg input,
+.luxe-bg textarea,
+.luxe-bg select {
+  background: hsl(var(--background)) !important;
+  color: hsl(var(--foreground)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  color-scheme: light !important;
+}
+
+/* font-display in admin → konsistente UI-Schrift */
+.luxe-bg .font-display {
+  font-family: inherit !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* Drawer-Sidebar (z.B. AdminRooms) */
+.luxe-bg ~ aside,
+aside.bg-stone-950 {
+  background: hsl(var(--card)) !important;
+  border-color: hsl(var(--border)) !important;
+}
+
+/* ============================================
+   ADMIN-SHELL READABILITY FIX
+   Input/Textarea & muted text within the admin
+   were inheriting the global gold/transparent
+   styling which is invisible on white surfaces.
+   Force a neutral, dark, legible appearance.
+   ============================================ */
+
+.admin-shell {
+  color: hsl(220 13% 18%) !important;
+}
+
+/* Inputs, textareas & selects → neutral, dark text, visible placeholder */
+.admin-shell input,
+.admin-shell textarea,
+.admin-shell select {
+  background-color: #ffffff !important;
+  color: #1a1a1a !important;
+  border: 1px solid hsl(220 13% 80%) !important;
+  border-width: 1px !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.admin-shell input:focus,
+.admin-shell textarea:focus,
+.admin-shell select:focus,
+.admin-shell input:focus-visible,
+.admin-shell textarea:focus-visible,
+.admin-shell select:focus-visible {
+  border-color: hsl(220 90% 56%) !important;
+  box-shadow: 0 0 0 3px hsl(220 90% 56% / 0.15) !important;
+  outline: none !important;
+}
+
+.admin-shell input::placeholder,
+.admin-shell textarea::placeholder {
+  color: hsl(220 9% 46%) !important;
+  opacity: 1 !important;
+}
+
+/* Make all faded gold/amber utility text actually readable */
+.admin-shell .text-gold,
+.admin-shell [class*="text-gold/"],
+.admin-shell [class*="text-amber-"],
+.admin-shell [class*="text-stone-"] {
+  color: hsl(220 13% 25%) !important;
+}
+
+.admin-shell .text-muted-foreground,
+.admin-shell [class*="text-foreground/6"],
+.admin-shell [class*="text-foreground/7"] {
+  color: hsl(220 9% 38%) !important;
+}
+
+/* Cards inside admin: ensure dark, readable foreground */
+.admin-shell .text-white,
+.admin-shell [class*="text-white/"] {
+  color: hsl(220 13% 18%) !important;
+}
+
+/* BUT restore white text for elements with dark backgrounds or inside buttons/badges/links */
+.admin-shell button .text-white,
+.admin-shell button[class*="bg-"] .text-white,
+.admin-shell a[class*="bg-"] .text-white,
+.admin-shell button.text-white,
+.admin-shell a.text-white,
+.admin-shell [class*="bg-"].text-white,
+.admin-shell [class*="bg-"] .text-white,
+.admin-shell [class*="bg-"] [class*="text-white/"],
+.admin-shell [class*="bg-slate-9"].text-white,
+.admin-shell [class*="bg-slate-8"].text-white,
+.admin-shell [class*="bg-black"].text-white,
+.admin-shell [class*="bg-rose-"].text-white,
+.admin-shell [class*="bg-zinc-"].text-white,
+.admin-shell [class*="bg-blue-"].text-white,
+.admin-shell [class*="bg-indigo-"].text-white,
+.admin-shell [class*="bg-purple-"].text-white,
+.admin-shell [class*="bg-violet-"].text-white,
+.admin-shell [class*="bg-red-"].text-white,
+.admin-shell [class*="bg-slate-7"].text-white,
+.admin-shell [class*="bg-zinc-7"].text-white,
+.admin-shell [class*="bg-rose-7"].text-white {
+  color: #ffffff !important;
+}
+
+/* Mobile admin: bigger tap targets, prevent iOS zoom */
+@media (max-width: 768px) {
+  .admin-shell input,
+  .admin-shell textarea,
+  .admin-shell select {
+    font-size: 16px !important;
+    min-height: 44px !important;
+  }
+}
+
+/* ============================================
+   ADMIN CINEMATIC CONTROL CENTER
+   Aligns the admin with the public landing page:
+   black editorial surfaces, warm gold hairlines,
+   and lime action accents.
+   ============================================ */
+
+.admin-shell {
+  --admin-bg: 0 0% 0%;
+  --admin-surface: 28 10% 7%;
+  --admin-surface-2: 32 12% 10%;
+  --admin-surface-3: 38 16% 13%;
+  --admin-line: 38 26% 32%;
+  --admin-gold: 38 46% 80%;
+  --admin-gold-soft: 38 32% 70%;
+  --admin-cream: 38 35% 93%;
+  --admin-muted: 38 12% 70%;
+  --admin-lime: 84 58% 54%;
+  --admin-rose: 350 72% 58%;
+  background:
+    radial-gradient(ellipse at 18% 0%, hsl(38 34% 20% / 0.22), transparent 42%),
+    radial-gradient(ellipse at 100% 30%, hsl(86 48% 28% / 0.10), transparent 36%),
+    linear-gradient(180deg, hsl(var(--admin-bg)) 0%, hsl(30 10% 3%) 100%) !important;
+  color: hsl(var(--admin-cream)) !important;
+}
+
+.admin-shell aside {
+  background:
+    linear-gradient(180deg, hsl(35 16% 10% / 0.96), hsl(0 0% 2% / 0.98)) !important;
+  border-color: hsl(var(--admin-line) / 0.55) !important;
+  box-shadow: inset -1px 0 0 hsl(38 40% 75% / 0.08), 24px 0 70px -45px hsl(0 0% 0%) !important;
+}
+
+.admin-shell header {
+  background: linear-gradient(180deg, hsl(32 14% 8% / 0.94), hsl(0 0% 3% / 0.90)) !important;
+  border-color: hsl(var(--admin-line) / 0.55) !important;
+  box-shadow: inset 0 -1px 0 hsl(38 40% 75% / 0.08), 0 18px 45px -32px hsl(0 0% 0%) !important;
+}
+
+.admin-shell main {
+  background:
+    radial-gradient(ellipse at 42% 0%, hsl(38 38% 20% / 0.12), transparent 45%),
+    linear-gradient(180deg, hsl(0 0% 1%), hsl(30 9% 4%)) !important;
+}
+
+.admin-shell .bg-card,
+.admin-shell .bg-background,
+.admin-shell .bg-popover {
+  background-color: hsl(var(--admin-surface)) !important;
+}
+
+.admin-shell .bg-muted,
+.admin-shell .bg-muted\/50,
+.admin-shell .bg-muted\/60 {
+  background-color: hsl(var(--admin-surface-2)) !important;
+}
+
+.admin-shell .border-border,
+.admin-shell [class*="border-border"] {
+  border-color: hsl(var(--admin-line) / 0.55) !important;
+}
+
+.admin-shell .text-foreground,
+.admin-shell .text-card-foreground,
+.admin-shell .text-white,
+.admin-shell [class*="text-white/"] {
+  color: hsl(var(--admin-cream)) !important;
+}
+
+.admin-shell .text-muted-foreground {
+  color: hsl(var(--admin-muted) / 0.78) !important;
+}
+
+.admin-shell input,
+.admin-shell textarea,
+.admin-shell select {
+  background-color: hsl(30 10% 7%) !important;
+  color: hsl(var(--admin-cream)) !important;
+  border-color: hsl(var(--admin-line) / 0.65) !important;
+  box-shadow: inset 0 1px 0 hsl(38 35% 85% / 0.05) !important;
+  color-scheme: dark !important;
+}
+
+.admin-shell input:focus,
+.admin-shell textarea:focus,
+.admin-shell select:focus,
+.admin-shell input:focus-visible,
+.admin-shell textarea:focus-visible,
+.admin-shell select:focus-visible {
+  border-color: hsl(var(--admin-gold) / 0.75) !important;
+  box-shadow: 0 0 0 3px hsl(var(--admin-gold) / 0.12) !important;
+}
+
+.admin-shell input::placeholder,
+.admin-shell textarea::placeholder {
+  color: hsl(var(--admin-muted) / 0.55) !important;
+}
+
+.admin-shell button:active,
+.admin-shell [role="button"]:active,
+.admin-shell a.btn:active {
+  background-color: hsl(38 18% 16%) !important;
+  color: hsl(var(--admin-cream)) !important;
+  border-color: hsl(var(--admin-gold) / 0.35) !important;
+}
+
+.admin-shell nav a,
+.admin-shell nav button {
+  color: hsl(var(--admin-muted) / 0.82) !important;
+}
+
+.admin-shell nav a[aria-current="page"] {
+  background: linear-gradient(135deg, hsl(var(--admin-gold) / 0.14), hsl(var(--admin-lime) / 0.08)) !important;
+  color: hsl(var(--admin-cream)) !important;
+  border: 1px solid hsl(var(--admin-gold) / 0.22);
+}
+
+.admin-shell nav a[aria-current="page"] svg,
+.admin-shell nav a:hover svg,
+.admin-shell nav a:hover {
+  color: hsl(var(--admin-gold)) !important;
+}
+
+.admin-overview {
+  min-height: 100%;
+}
+
+.admin-alert-critical {
+  border: 1px solid hsl(350 74% 62% / 0.35);
+  background: linear-gradient(135deg, hsl(350 55% 14% / 0.92), hsl(0 0% 4% / 0.92));
+  border-radius: 14px;
+  padding: 1rem;
+  color: hsl(var(--admin-cream));
+  box-shadow: 0 18px 50px -34px hsl(350 80% 55% / 0.85);
+}
+
+.admin-command-center {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  border: 1px solid hsl(var(--admin-gold) / 0.20);
+  border-radius: 18px;
+  padding: 1.25rem;
+  background:
+    linear-gradient(135deg, hsl(0 0% 0% / 0.78), hsl(34 18% 10% / 0.90)),
+    radial-gradient(ellipse at 10% 0%, hsl(var(--admin-gold) / 0.20), transparent 48%);
+  box-shadow: 0 28px 80px -48px hsl(0 0% 0%), inset 0 1px 0 hsl(38 42% 82% / 0.10);
+  position: relative;
+  overflow: hidden;
+}
+
+.admin-command-center::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, hsl(var(--admin-gold) / 0.18), transparent);
+  height: 1px;
+}
+
+.admin-eyebrow {
+  margin: 0 0 0.45rem;
+  color: hsl(var(--admin-gold-soft));
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  font-weight: 600;
+}
+
+.admin-display-title {
+  color: hsl(var(--admin-cream));
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.75rem, 3vw, 2.85rem);
+  font-weight: 400;
+  line-height: 1;
+  margin: 0;
+}
+
+.admin-display-copy {
+  color: hsl(var(--admin-muted) / 0.82);
+  font-size: 0.86rem;
+  line-height: 1.65;
+  max-width: 48rem;
+  margin: 0.75rem 0 0;
+}
+
+.admin-hero-action,
+.admin-primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid hsl(var(--admin-lime) / 0.55);
+  background: linear-gradient(135deg, hsl(var(--admin-lime) / 0.72), hsl(82 48% 26% / 0.88));
+  color: hsl(0 0% 100%) !important;
+  border-radius: 10px;
+  padding: 0.72rem 0.95rem;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  box-shadow: inset 0 1px 0 hsl(0 0% 100% / 0.18), 0 16px 34px -22px hsl(var(--admin-lime) / 0.85);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.admin-hero-action:hover,
+.admin-primary-button:hover {
+  transform: translateY(-1px);
+  border-color: hsl(var(--admin-lime) / 0.85);
+  background: linear-gradient(135deg, hsl(var(--admin-lime) / 0.86), hsl(82 54% 30% / 0.92));
+}
+
+.admin-secondary-button {
+  border: 1px solid hsl(var(--admin-line) / 0.70);
+  background: hsl(var(--admin-surface-2));
+  color: hsl(var(--admin-muted)) !important;
+}
+
+.admin-secondary-button:hover {
+  color: hsl(var(--admin-cream)) !important;
+  border-color: hsl(var(--admin-gold) / 0.35);
+}
+
+.admin-workflow-strip {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.admin-signal-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.admin-signal-card {
+  min-height: 8.75rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  border: 1px solid hsl(var(--admin-line) / 0.58);
+  border-radius: 14px;
+  padding: 1rem;
+  background:
+    linear-gradient(145deg, hsl(var(--admin-surface-2) / 0.94), hsl(0 0% 2% / 0.94));
+  color: hsl(var(--admin-cream)) !important;
+  box-shadow: inset 0 1px 0 hsl(38 42% 82% / 0.07);
+}
+
+.admin-signal-icon {
+  width: 2.35rem;
+  height: 2.35rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  flex-shrink: 0;
+  border: 1px solid currentColor;
+  background: currentColor;
+}
+
+.admin-signal-icon svg {
+  color: hsl(0 0% 3%);
+}
+
+.admin-signal-lime .admin-signal-icon { color: hsl(var(--admin-lime)); }
+.admin-signal-gold .admin-signal-icon { color: hsl(var(--admin-gold)); }
+.admin-signal-rose .admin-signal-icon { color: hsl(var(--admin-rose)); }
+.admin-signal-blue .admin-signal-icon { color: hsl(202 84% 68%); }
+
+.admin-workflow-card {
+  display: flex;
+  align-items: center;
+  gap: 0.72rem;
+  min-width: 0;
+  border: 1px solid hsl(var(--admin-line) / 0.52);
+  border-radius: 12px;
+  padding: 0.8rem;
+  background: linear-gradient(145deg, hsl(var(--admin-surface-2) / 0.94), hsl(0 0% 2% / 0.94));
+  color: hsl(var(--admin-cream)) !important;
+  box-shadow: inset 0 1px 0 hsl(38 42% 82% / 0.06);
+}
+
+.admin-workflow-card:hover {
+  border-color: hsl(var(--admin-gold) / 0.34);
+  background: linear-gradient(145deg, hsl(var(--admin-surface-3) / 0.94), hsl(0 0% 3% / 0.94));
+}
+
+.admin-workflow-icon {
+  width: 2.1rem;
+  height: 2.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  color: hsl(var(--admin-gold));
+  background: hsl(var(--admin-gold) / 0.11);
+  border: 1px solid hsl(var(--admin-gold) / 0.18);
+  flex-shrink: 0;
+}
+
+.admin-category-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .admin-category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1180px) {
+  .admin-category-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1540px) {
+  .admin-category-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.admin-request-card {
+  min-height: 18rem;
+  border: 1px solid hsl(var(--admin-line) / 0.55);
+  background:
+    linear-gradient(180deg, hsl(var(--admin-surface-2) / 0.96), hsl(0 0% 2% / 0.96));
+  color: hsl(var(--admin-cream));
+  box-shadow: 0 22px 55px -44px hsl(0 0% 0%), inset 0 1px 0 hsl(38 42% 82% / 0.07);
+}
+
+.admin-request-card:hover {
+  border-color: hsl(var(--admin-gold) / 0.32);
+  box-shadow: 0 26px 70px -44px hsl(var(--admin-gold) / 0.28), inset 0 1px 0 hsl(38 42% 82% / 0.10);
+}
+
+.admin-request-header {
+  border-bottom: 1px solid hsl(var(--admin-line) / 0.48);
+  background: linear-gradient(180deg, hsl(38 18% 13% / 0.66), hsl(0 0% 4% / 0.32));
+}
+
+.admin-request-header h3 {
+  color: hsl(var(--admin-cream));
+}
+
+.admin-request-header p,
+.admin-empty-state,
+.admin-request-secondary,
+.admin-request-footer,
+.admin-request-meta {
+  color: hsl(var(--admin-muted) / 0.76);
+}
+
+.admin-request-icon {
+  background: linear-gradient(135deg, hsl(var(--admin-gold) / 0.18), hsl(var(--admin-gold) / 0.07)) !important;
+  color: hsl(var(--admin-gold)) !important;
+  border: 1px solid hsl(var(--admin-gold) / 0.20);
+}
+
+.admin-icon-button,
+.admin-row-action {
+  color: hsl(var(--admin-muted) / 0.82) !important;
+}
+
+.admin-icon-button:hover,
+.admin-row-action:hover {
+  color: hsl(var(--admin-cream)) !important;
+  background: hsl(var(--admin-gold) / 0.10) !important;
+}
+
+.admin-row-action-danger {
+  color: hsl(var(--admin-rose)) !important;
+}
+
+.admin-row-action-danger:hover {
+  background: hsl(var(--admin-rose) / 0.12) !important;
+}
+
+.admin-request-rows {
+  display: block;
+}
+
+.admin-request-row {
+  border-bottom: 1px solid hsl(var(--admin-line) / 0.34);
+  background: transparent;
+}
+
+.admin-request-row:hover {
+  background: hsl(var(--admin-gold) / 0.06);
+}
+
+.admin-request-primary {
+  color: hsl(var(--admin-cream));
+}
+
+.admin-request-meta span {
+  border: 1px solid hsl(var(--admin-line) / 0.45);
+  background: hsl(0 0% 100% / 0.035);
+  color: hsl(var(--admin-muted) / 0.84);
+  border-radius: 999px;
+  padding: 0.12rem 0.38rem;
+  line-height: 1.2;
+}
+
+.admin-request-footer {
+  border-top: 1px solid hsl(var(--admin-line) / 0.48);
+  background: hsl(0 0% 0% / 0.26);
+}
+
+.admin-footer-action {
+  color: hsl(var(--admin-lime)) !important;
+}
+
+.admin-footer-action:hover {
+  background: hsl(var(--admin-lime) / 0.10) !important;
+}
+
+.admin-footer-action-danger {
+  color: hsl(var(--admin-rose)) !important;
+}
+
+.admin-footer-action-danger:hover {
+  background: hsl(var(--admin-rose) / 0.12) !important;
+}
+
+.admin-detail-dialog {
+  background:
+    linear-gradient(180deg, hsl(35 14% 10% / 0.98), hsl(0 0% 3% / 0.98)) !important;
+  color: hsl(var(--admin-cream)) !important;
+  border: 1px solid hsl(var(--admin-gold) / 0.24) !important;
+  box-shadow: 0 32px 100px -38px hsl(0 0% 0%) !important;
+}
+
+.admin-detail-dialog [data-radix-dialog-title],
+.admin-detail-dialog h2 {
+  color: hsl(var(--admin-cream)) !important;
+}
+
+.admin-detail-dialog [data-radix-dialog-description],
+.admin-detail-dialog p {
+  color: hsl(var(--admin-muted) / 0.82) !important;
+}
+
+.admin-detail-section {
+  border: 1px solid hsl(var(--admin-line) / 0.58);
+  border-radius: 12px;
+  background: hsl(0 0% 100% / 0.035);
+}
+
+.admin-detail-section-title {
+  background: hsl(var(--admin-gold) / 0.09);
+  color: hsl(var(--admin-gold));
+  border-bottom: 1px solid hsl(var(--admin-line) / 0.45);
+}
+
+.admin-detail-line {
+  border-bottom: 1px solid hsl(var(--admin-line) / 0.32);
+}
+
+.admin-detail-line:last-child {
+  border-bottom: 0;
+}
+
+.admin-detail-line > span:first-child {
+  color: hsl(var(--admin-muted) / 0.76);
+}
+
+.admin-detail-line > span:last-child {
+  color: hsl(var(--admin-cream));
+}
+
+@media (max-width: 900px) {
+  .admin-command-center {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .admin-signal-grid,
+  .admin-workflow-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .admin-signal-grid,
+  .admin-workflow-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-display-title {
+    font-size: 2rem;
+  }
+}
+
+/* ============================================
+   ADMIN CONTRAST SAFETY LAYER
+   Last rule block on purpose: legacy admin pages
+   still contain light Tailwind utilities. This keeps
+   every old/new admin surface readable on the dark
+   Heidehof cockpit theme.
+   ============================================ */
+
+.admin-shell {
+  color: hsl(var(--admin-cream)) !important;
+}
+
+.admin-shell .text-muted-foreground,
+.admin-shell [class*="text-muted-foreground"],
+.admin-shell [class*="text-gray-"],
+.admin-shell [class*="text-zinc-"],
+.admin-shell [class*="text-slate-"],
+.admin-shell [class*="text-neutral-"],
+.admin-shell [class*="text-stone-"],
+.admin-shell [class*="text-foreground/6"],
+.admin-shell [class*="text-foreground/7"] {
+  color: hsl(var(--admin-muted) / 0.92) !important;
+}
+
+.admin-shell .text-foreground,
+.admin-shell .text-card-foreground,
+.admin-shell .text-primary,
+.admin-shell .text-white,
+.admin-shell [class*="text-white/"],
+.admin-shell h1,
+.admin-shell h2,
+.admin-shell h3,
+.admin-shell h4,
+.admin-shell h5,
+.admin-shell h6,
+.admin-shell label,
+.admin-shell strong {
+  color: hsl(var(--admin-cream)) !important;
+}
+
+.admin-shell .text-gold,
+.admin-shell [class*="text-gold"],
+.admin-shell [class*="text-amber-"],
+.admin-shell [class*="text-yellow-"],
+.admin-shell [class*="text-orange-"] {
+  color: hsl(var(--admin-gold)) !important;
+}
+
+.admin-shell [class*="text-purple-"],
+.admin-shell [class*="text-violet-"],
+.admin-shell [class*="text-pink-"] {
+  color: hsl(305 74% 82%) !important;
+}
+
+.admin-shell [class*="text-red-"],
+.admin-shell [class*="text-rose-"],
+.admin-shell .text-destructive {
+  color: hsl(var(--admin-rose)) !important;
+}
+
+.admin-shell [class*="text-blue-"],
+.admin-shell [class*="text-sky-"],
+.admin-shell [class*="text-cyan-"] {
+  color: hsl(205 86% 75%) !important;
+}
+
+.admin-shell [class*="text-emerald-"],
+.admin-shell [class*="text-green-"],
+.admin-shell [class*="text-lime-"] {
+  color: hsl(var(--admin-lime)) !important;
+}
+
+.admin-shell .bg-white,
+.admin-shell [class*="bg-white"],
+.admin-shell [class*="bg-background/"],
+.admin-shell [class*="bg-card/"],
+.admin-shell [class*="bg-popover/"],
+.admin-shell [class*="bg-muted/"],
+.admin-shell [class*="bg-gray-50"],
+.admin-shell [class*="bg-gray-100"],
+.admin-shell [class*="bg-gray-200"],
+.admin-shell [class*="bg-zinc-50"],
+.admin-shell [class*="bg-zinc-100"],
+.admin-shell [class*="bg-zinc-200"],
+.admin-shell [class*="bg-slate-50"],
+.admin-shell [class*="bg-slate-100"],
+.admin-shell [class*="bg-slate-200"],
+.admin-shell [class*="bg-stone-50"],
+.admin-shell [class*="bg-stone-100"],
+.admin-shell [class*="bg-stone-200"],
+.admin-shell [class*="from-white"],
+.admin-shell [class*="from-neutral-100"],
+.admin-shell [class*="from-neutral-200"],
+.admin-shell [class*="to-neutral-200"],
+.admin-shell [class*="to-neutral-300"] {
+  background: hsl(var(--admin-surface-2)) !important;
+  border-color: hsl(var(--admin-line) / 0.70) !important;
+  color: hsl(var(--admin-cream)) !important;
+}
+
+.admin-shell [class*="bg-sky-50"],
+.admin-shell [class*="bg-sky-100"],
+.admin-shell [class*="bg-sky-200"],
+.admin-shell [class*="bg-blue-50"],
+.admin-shell [class*="bg-blue-100"],
+.admin-shell [class*="bg-blue-200"],
+.admin-shell [class*="bg-cyan-50"],
+.admin-shell [class*="bg-cyan-100"],
+.admin-shell [class*="bg-cyan-200"] {
+  background: hsl(205 86% 58% / 0.16) !important;
+  border-color: hsl(205 86% 75% / 0.36) !important;
+  color: hsl(205 86% 82%) !important;
+}
+
+.admin-shell [class*="bg-rose-50"],
+.admin-shell [class*="bg-rose-100"],
+.admin-shell [class*="bg-rose-200"],
+.admin-shell [class*="bg-red-50"],
+.admin-shell [class*="bg-red-100"],
+.admin-shell [class*="bg-red-200"] {
+  background: hsl(var(--admin-rose) / 0.16) !important;
+  border-color: hsl(var(--admin-rose) / 0.36) !important;
+  color: hsl(350 86% 82%) !important;
+}
+
+.admin-shell [class*="bg-emerald-50"],
+.admin-shell [class*="bg-emerald-100"],
+.admin-shell [class*="bg-emerald-200"],
+.admin-shell [class*="bg-green-50"],
+.admin-shell [class*="bg-green-100"],
+.admin-shell [class*="bg-green-200"],
+.admin-shell [class*="bg-lime-50"],
+.admin-shell [class*="bg-lime-100"],
+.admin-shell [class*="bg-lime-200"] {
+  background: hsl(var(--admin-lime) / 0.15) !important;
+  border-color: hsl(var(--admin-lime) / 0.34) !important;
+  color: hsl(84 66% 78%) !important;
+}
+
+.admin-shell [class*="bg-amber-50"],
+.admin-shell [class*="bg-amber-100"],
+.admin-shell [class*="bg-amber-200"],
+.admin-shell [class*="bg-yellow-50"],
+.admin-shell [class*="bg-yellow-100"],
+.admin-shell [class*="bg-yellow-200"],
+.admin-shell [class*="bg-orange-50"],
+.admin-shell [class*="bg-orange-100"],
+.admin-shell [class*="bg-orange-200"] {
+  background: hsl(var(--admin-gold) / 0.14) !important;
+  border-color: hsl(var(--admin-gold) / 0.34) !important;
+  color: hsl(var(--admin-gold)) !important;
+}
+
+.admin-shell [class*="bg-purple-50"],
+.admin-shell [class*="bg-purple-100"],
+.admin-shell [class*="bg-purple-200"],
+.admin-shell [class*="bg-violet-50"],
+.admin-shell [class*="bg-violet-100"],
+.admin-shell [class*="bg-violet-200"] {
+  background: hsl(268 78% 64% / 0.16) !important;
+  border-color: hsl(268 78% 78% / 0.34) !important;
+  color: hsl(268 88% 84%) !important;
+}
+
+.admin-shell [class*="from-neutral-"],
+.admin-shell [class*="to-neutral-"],
+.admin-shell [class*="from-white"],
+.admin-shell [class*="to-white"],
+.admin-shell [class*="from-gray-"],
+.admin-shell [class*="to-gray-"],
+.admin-shell [class*="from-zinc-"],
+.admin-shell [class*="to-zinc-"],
+.admin-shell [class*="from-slate-"],
+.admin-shell [class*="to-slate-"] {
+  background-image: none !important;
+  background-color: hsl(var(--admin-surface-2)) !important;
+  border-color: hsl(var(--admin-line) / 0.72) !important;
+  color: hsl(var(--admin-cream)) !important;
+}
+
+.admin-shell button,
+.admin-shell [role="button"],
+.admin-shell a[role="button"],
+.admin-shell label.inline-flex,
+.admin-shell span.inline-flex {
+  color: hsl(var(--admin-cream)) !important;
+}
+
+.admin-shell button[class*="from-neutral-"],
+.admin-shell button[class*="to-neutral-"],
+.admin-shell button[class*="bg-white"],
+.admin-shell button[class*="bg-gray-"],
+.admin-shell button[class*="bg-zinc-"],
+.admin-shell button[class*="bg-slate-"],
+.admin-shell button[class*="bg-muted"],
+.admin-shell a[class*="from-neutral-"],
+.admin-shell a[class*="to-neutral-"],
+.admin-shell a[class*="bg-white"],
+.admin-shell a[class*="bg-gray-"],
+.admin-shell a[class*="bg-zinc-"],
+.admin-shell a[class*="bg-slate-"],
+.admin-shell a[class*="bg-muted"],
+.admin-shell label[class*="from-neutral-"],
+.admin-shell label[class*="to-neutral-"],
+.admin-shell label[class*="bg-white"],
+.admin-shell label[class*="bg-gray-"],
+.admin-shell label[class*="bg-zinc-"],
+.admin-shell label[class*="bg-slate-"],
+.admin-shell label[class*="bg-muted"],
+.admin-shell span[class*="from-neutral-"],
+.admin-shell span[class*="to-neutral-"],
+.admin-shell span[class*="bg-white"],
+.admin-shell span[class*="bg-gray-"],
+.admin-shell span[class*="bg-zinc-"],
+.admin-shell span[class*="bg-slate-"],
+.admin-shell span[class*="bg-muted"] {
+  background: hsl(var(--admin-surface-2)) !important;
+  border-color: hsl(var(--admin-line) / 0.72) !important;
+  color: hsl(var(--admin-cream)) !important;
+  box-shadow: inset 0 1px 0 hsl(38 38% 84% / 0.06) !important;
+}
+
+.admin-shell button[class*="from-neutral-"]:hover,
+.admin-shell button[class*="to-neutral-"]:hover,
+.admin-shell button[class*="bg-white"]:hover,
+.admin-shell button[class*="bg-gray-"]:hover,
+.admin-shell button[class*="bg-zinc-"]:hover,
+.admin-shell button[class*="bg-slate-"]:hover,
+.admin-shell button[class*="bg-muted"]:hover {
+  background: hsl(var(--admin-surface-3)) !important;
+  border-color: hsl(var(--admin-gold) / 0.42) !important;
+}
+
+.admin-shell button[class*="bg-gold"],
+.admin-shell [class*="bg-gold"],
+.admin-shell [class*="bg-\\[hsl\\(var\\(--apple\\)\\)\\]"],
+.admin-shell .admin-primary-button,
+.admin-shell .admin-hero-action {
+  color: hsl(28 18% 4%) !important;
+}
+
+.admin-shell button[class*="bg-blue-"],
+.admin-shell button[class*="bg-emerald-"],
+.admin-shell button[class*="bg-red-"],
+.admin-shell button[class*="bg-rose-"],
+.admin-shell button[class*="bg-destructive"],
+.admin-shell .bg-destructive {
+  color: hsl(0 0% 100%) !important;
+}
+
+.admin-shell button:disabled,
+.admin-shell button[disabled],
+.admin-shell [aria-disabled="true"] {
+  opacity: 0.58 !important;
+  color: hsl(var(--admin-muted) / 0.95) !important;
+}
+
+.admin-shell input,
+.admin-shell textarea,
+.admin-shell select,
+.admin-shell [role="combobox"] {
+  background: hsl(var(--admin-surface-2)) !important;
+  color: hsl(var(--admin-cream)) !important;
+  border-color: hsl(var(--admin-line) / 0.72) !important;
+}
+
+.admin-shell input[type="date"],
+.admin-shell input[type="time"],
+.admin-shell input[type="file"],
+.admin-shell input[type="number"] {
+  color-scheme: dark;
+}
+
+.admin-shell input::placeholder,
+.admin-shell textarea::placeholder,
+.admin-shell [data-placeholder] {
+  color: hsl(var(--admin-muted) / 0.72) !important;
+}
+
+.admin-shell [data-radix-select-trigger],
+.admin-shell [role="combobox"] span,
+.admin-shell [cmdk-input],
+.admin-shell [cmdk-item] {
+  color: hsl(var(--admin-cream)) !important;
+}
+
+.admin-shell .admin-request-card,
+.admin-shell .admin-detail-section,
+.admin-shell .admin-panel,
+.admin-shell .rounded-xl,
+.admin-shell .rounded-2xl,
+.admin-shell .rounded-3xl {
+  color: hsl(var(--admin-cream));
+}
+
+.admin-shell .admin-request-card .text-amber-200,
+.admin-shell .admin-request-card [class*="text-amber-"],
+.admin-shell .admin-request-card [class*="text-gray-"],
+.admin-shell .admin-request-card [class*="text-zinc-"],
+.admin-shell .admin-request-card [class*="text-slate-"] {
+  color: hsl(var(--admin-muted) / 0.92) !important;
+}

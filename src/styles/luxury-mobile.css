@@ -1,0 +1,76 @@
+/* Luxury 5-Star Hotel Mobile Optimizations */
+
+/* Premium Card Animations */
+@keyframes luxury-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes luxury-scale {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.02);
+  }
+}
+
+/* Luxury Mobile Containers */
+.luxury-mobile-container {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(30, 41, 59, 0.95));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  animation: luxury-fade-in 0.5s ease-out;
+}
+
+/* Premium Touch Feedback */
+.luxury-touch:active {
+  transform: scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+/* Elegant Gradients */
+.gold-gradient {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.9), rgba(212, 175, 55, 1));
+}
+
+.dark-luxury-gradient {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(30, 41, 59, 0.9));
+}
+
+/* Mobile-First Media Queries */
+@media (max-width: 640px) {
+  .luxury-mobile-spacing {
+    padding: 1.5rem 1rem;
+    margin: 0.75rem 0;
+  }
+  
+  .luxury-mobile-text {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  
+  .luxury-mobile-button {
+    min-height: 3.5rem;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+  }
+}
+
+/* Tablet Optimizations */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .luxury-tablet-spacing {
+    padding: 2rem 1.5rem;
+    margin: 1rem 0;
+  }
+}

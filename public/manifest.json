@@ -1,0 +1,121 @@
+
+{
+  "name": "Hotel Der Heidehof - Premium Experience",
+  "short_name": "Heidehof",
+  "description": "Offizielle App für Hotel Der Heidehof - Tagungsanfragen, Menüauswahl und mehr",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#171717",
+  "theme_color": "#D4AF37",
+  "orientation": "any",
+  "scope": "/",
+  "lang": "de-DE",
+  "dir": "ltr",
+  "categories": ["hospitality", "travel", "lifestyle", "food"],
+  "icons": [
+    {
+      "src": "/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Tagungsanfrage",
+      "short_name": "Anfrage",
+      "description": "Direkt zur Tagungsanfrage mit Clara",
+      "url": "/tagungsraeume",
+      "icons": [
+        {
+          "src": "/icon-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Tagungsräume",
+      "short_name": "Räume",
+      "description": "Übersicht aller Tagungsräume",
+      "url": "/tagungsraeume",
+      "icons": [
+        {
+          "src": "/icon-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Pauschalen",
+      "short_name": "Pauschalen",
+      "description": "Tagungspauschalen & Preise",
+      "url": "/tagungspauschalen",
+      "icons": [
+        {
+          "src": "/icon-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Menüauswahl",
+      "short_name": "Menü",
+      "description": "Menüauswahl für Tagungsgäste",
+      "url": "/menue-bestellung",
+      "icons": [
+        {
+          "src": "/icon-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "display_override": ["standalone", "fullscreen", "minimal-ui"]
+}

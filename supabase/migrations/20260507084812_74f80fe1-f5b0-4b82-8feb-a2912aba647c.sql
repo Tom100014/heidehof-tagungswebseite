@@ -1,0 +1,1 @@
+ALTER VIEW public.kitchen_breakdown SET (security_invoker = true);

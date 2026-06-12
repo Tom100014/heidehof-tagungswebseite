@@ -1,0 +1,229 @@
+/* Mobile Safe Area für bessere Kompatibilität mit verschiedenen Geräten */
+
+.safe-area-top {
+  padding-top: env(safe-area-inset-top, 12px);
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.safe-area-padding {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.mobile-touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  touch-action: manipulation;
+}
+
+.tablet-touch-target {
+  min-height: 48px;
+  min-width: 48px;
+  touch-action: manipulation;
+}
+
+/* =========== EINHEITLICHE FORMULAR-BUTTON-SPACING =========== */
+
+/* HAUPTKLASSE: Verhindert Überlappung mit unterer App-Leiste */
+.form-button-container {
+  padding-bottom: 100px !important; /* Sicherer Abstand zur unteren Navigation */
+  margin-bottom: 20px;
+}
+
+.form-submit-section {
+  padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)) !important;
+  padding-top: 20px;
+  background: linear-gradient(to top, var(--background) 60%, transparent);
+}
+
+/* Für Formulare mit mehreren Buttons */
+.form-button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)) !important;
+  padding-top: 24px;
+}
+
+/* Mobile spezifische Anpassungen */
+@media (max-width: 768px) {
+  .bottom-safe-spacing {
+    padding-bottom: max(20px, env(safe-area-inset-bottom, 0px));
+    margin-bottom: 120px; /* Platz für OrderFooter */
+  }
+  
+  .mobile-form-container {
+    padding-bottom: 140px !important; /* Extra Platz für Formulare */
+  }
+  
+  .mobile-layout-content {
+    padding-bottom: 100px; /* Standard mobile spacing */
+  }
+
+  /* EINHEITLICHE MOBILE FORMULAR-BUTTONS */
+  .mobile-form-buttons {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px 20px calc(80px + env(safe-area-inset-bottom, 0px)) 20px;
+    background: linear-gradient(to top, var(--background) 80%, var(--background)/90 95%, transparent);
+    border-top: 1px solid var(--border);
+    z-index: 45; /* Über BottomNavBar (40) aber unter Order Footer (100) */
+    backdrop-filter: blur(12px);
+  }
+
+  .mobile-form-buttons .submit-button {
+    width: 100%;
+    min-height: 48px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .tablet-layout-content {
+    padding-bottom: 80px; /* Tablet spacing */
+  }
+  
+  .tablet-form-container {
+    padding-bottom: 100px; /* Extra Platz für Tablet-Formulare */
+  }
+  
+  .tablet-bottom-spacing {
+    padding-bottom: max(20px, env(safe-area-inset-bottom, 0px));
+  }
+
+  /* TABLET FORMULAR-BUTTONS */
+  .tablet-form-buttons {
+    padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px)) !important;
+    margin-top: 24px;
+  }
+}
+
+/* Desktop - Standard Abstand */
+@media (min-width: 1024px) {
+  .desktop-form-buttons {
+    padding-bottom: 40px;
+    margin-top: 32px;
+  }
+}
+
+/* Z-Index Management für Overlays - UPDATED */
+.order-footer-overlay {
+  z-index: 100; /* Deutlich höher als BottomNavBar */
+}
+
+.form-sheet-overlay {
+  z-index: 110; /* Noch höher für Dialoge */
+}
+
+.navigation-overlay {
+  z-index: 50; /* Erhöht von 30 auf 50 */
+}
+
+.bottom-nav-bar {
+  z-index: 40; /* Reduziert damit Order Footer darüber liegt */
+  position: fixed !important; /* Erzwingt fixed positioning */
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  transform: translateZ(0); /* GPU-Beschleunigung für iOS */
+  -webkit-transform: translateZ(0); /* Safari-spezifisch */
+  backface-visibility: hidden; /* Verhindert flickering */
+  -webkit-backface-visibility: hidden;
+}
+
+/* Scrollbare Bereiche mit angepasstem Abstand */
+.scrollable-content-mobile {
+  max-height: calc(100vh - 180px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* iOS Device Specific Safe Areas */
+@supports (padding: max(0px)) {
+  /* iPhone with Dynamic Island (14 Pro, 15 series) */
+  @media screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3),
+         screen and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3),
+         screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
+    .safe-area-top {
+      padding-top: max(54px, env(safe-area-inset-top, 54px));
+    }
+  }
+
+  /* iPhone with Notch (X, 11, 12, 13 series) */  
+  @media screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3),
+         screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2),
+         screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3),
+         screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
+    .safe-area-top {
+      padding-top: max(44px, env(safe-area-inset-top, 44px));
+    }
+  }
+
+  /* General iOS fallback */
+  @supports (-webkit-touch-callout: none) {
+    .safe-area-top {
+      padding-top: max(20px, env(safe-area-inset-top, 20px));
+    }
+    
+    .safe-area-bottom {
+      padding-bottom: max(0px, env(safe-area-inset-bottom, 0px));
+    }
+  }
+}
+
+/* Additional iOS specific styles */
+.ios .safe-area-top {
+  padding-top: env(safe-area-inset-top, 20px);
+}
+
+.ios .safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.scrollable-content-tablet {
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* =========== UNIVERSELLE BUTTON-FIX KLASSEN =========== */
+
+/* Für alle Submit/Bestätigungs-Buttons */
+.universal-submit-button {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 16px;
+  margin-bottom: 80px; /* Standard Abstand zur unteren Navigation */
+}
+
+/* Für Button-Gruppen (mehrere Buttons nebeneinander) */
+.universal-button-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  margin-bottom: 80px;
+  flex-wrap: wrap;
+}
+
+.universal-button-group > * {
+  flex: 1;
+  min-height: 48px;
+}
+
+/* Responsive Anpassungen für Button-Gruppen */
+@media (max-width: 480px) {
+  .universal-button-group {
+    flex-direction: column;
+    margin-bottom: 100px; /* Mehr Platz auf kleinen Bildschirmen */
+  }
+  
+  .universal-button-group > * {
+    flex: none;
+    width: 100%;
+  }
+}

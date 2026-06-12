@@ -1,0 +1,281 @@
+
+/* Vereinfachte Mobile Form Optimierungen */
+
+/* Basis Form Styles */
+.unified-form-input,
+.unified-form-textarea {
+  background: hsl(var(--background)) !important;
+  border: 3px solid hsl(var(--primary) / 0.8) !important;
+  border-radius: 0.75rem !important;
+  font-size: 16px !important;
+  min-height: 48px !important;
+  padding: 0.75rem 1rem !important;
+  color: hsl(var(--foreground)) !important;
+  font-weight: 500 !important;
+  line-height: 1.5 !important;
+  position: relative !important;
+  z-index: 10 !important;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+.unified-form-input::placeholder,
+.unified-form-textarea::placeholder {
+  color: hsl(var(--primary) / 0.6) !important;
+  font-weight: 500 !important;
+  opacity: 0.9 !important;
+  position: relative !important;
+  z-index: 0 !important;
+}
+
+.unified-form-input:focus,
+.unified-form-textarea:focus {
+  background: hsl(var(--background)) !important;
+  border-color: hsl(var(--primary)) !important;
+  box-shadow: 
+    0 0 0 4px hsl(var(--primary) / 0.3),
+    0 0 20px hsl(var(--primary) / 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.4) !important;
+  outline: none !important;
+  z-index: 20 !important;
+}
+
+/* Form Container */
+.unified-form-card {
+  background: hsl(var(--card)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 4px 12px hsl(var(--shadow) / 0.15) !important;
+  padding: 1.5rem !important;
+  margin-bottom: 1rem !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  max-height: calc(100dvh - 6rem) !important;
+}
+
+/* Mobile Form Container - Beauty & alle Formulare */
+.mobile-form-container {
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  max-height: calc(100dvh - 4rem) !important;
+  padding-bottom: 3rem !important;
+  margin-top: 1rem !important;
+}
+
+/* Form Sections */
+.form-section {
+  margin-bottom: 1.5rem;
+  padding: 0;
+  background: transparent;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+/* Labels */
+.form-label {
+  font-weight: 600 !important;
+  color: hsl(var(--foreground)) !important;
+  margin-bottom: 0.5rem !important;
+  display: block !important;
+  font-size: 0.9375rem !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Buttons */
+.form-button {
+  background: hsl(var(--primary)) !important;
+  color: hsl(var(--primary-foreground)) !important;
+  border: none !important;
+  border-radius: 0.75rem !important;
+  padding: 0.75rem 1.5rem !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  min-height: 48px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 2px 8px hsl(var(--shadow) / 0.15) !important;
+  margin-bottom: 1rem !important;
+}
+
+.form-button:hover:not(:disabled) {
+  background: hsl(var(--primary) / 0.9) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px hsl(var(--shadow) / 0.2) !important;
+}
+
+.form-button:disabled {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+}
+
+/* Mobile Optimierungen */
+@media (max-width: 768px) {
+  .unified-form-input,
+  .unified-form-textarea {
+    font-size: 16px !important; /* min 16px prevents iOS auto-zoom */
+    padding: 0.75rem !important;
+    min-height: 44px !important;
+  }
+  
+  /* Date Input Mobile Optimierung */
+  input[type="date"] {
+    font-size: 18px !important;
+    min-height: 56px !important;
+    padding: 14px 16px !important;
+    line-height: 1.4 !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='%23FFD700' viewBox='0 0 16 16'%3e%3cpath d='M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z'/%3e%3cpath d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/%3e%3c/svg%3e") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 12px center !important;
+    background-size: 24px !important;
+  }
+  
+  /* Touch optimized buttons */
+  button,
+  .btn {
+    min-height: 48px !important;
+    min-width: 48px !important;
+    font-size: 16px !important;
+    padding: 12px 24px !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+  
+  /* Active states for touch feedback */
+  .hover-scale:active,
+  button:active {
+    transform: scale(0.98) !important;
+    transition: transform 0.1s ease !important;
+  }
+  
+  /* Focus states */
+  input:focus,
+  textarea:focus,
+  button:focus {
+    outline: 2px solid hsl(var(--ring)) !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 3px hsl(var(--ring) / 0.2) !important;
+  }
+  
+  /* Prevent zoom on iOS */
+  @supports (-webkit-touch-callout: none) {
+    input,
+    textarea,
+    select {
+      font-size: 16px !important;
+      transform: none !important;
+    }
+  }
+  
+  .unified-form-card {
+    margin: 0.5rem 0 1rem 0 !important;
+    padding: 1rem !important;
+    border-radius: 0.75rem !important;
+    max-height: calc(100dvh - 4rem) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Mobile Form Container mit App-Leisten-Bewusstsein */
+  .mobile-form-container {
+    max-height: calc(100dvh - 6rem) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-bottom: 4rem !important;
+    margin-bottom: 1rem !important;
+    padding-top: 1rem !important;
+  }
+  
+  .form-button {
+    width: 100% !important;
+    padding: 0.75rem 1.25rem !important;
+    font-size: 0.9375rem !important;
+    min-height: 44px !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .form-grid-2 {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  
+  .form-section {
+    margin-bottom: 1.25rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Container mit reduziertem Padding */
+.app-aware-container {
+  padding-bottom: 2rem !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+/* Formular-Aktionen */
+.form-actions,
+.submit-actions {
+  padding-bottom: 1rem !important;
+  margin-top: 1rem !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+/* Mobile-spezifische Container */
+@media (max-width: 768px) {
+  .mobile-container,
+  .mobile-form,
+  .order-form-container {
+    padding-bottom: 2rem !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  
+  /* Beschwerde-Formular spezifische Regeln */
+  .mobile-form-container .card {
+    max-height: calc(100dvh - 10rem) !important;
+    overflow-y: visible !important;
+  }
+  
+  .mobile-form-container .card-content {
+    padding-bottom: 2rem !important;
+  }
+}
+
+/* Sicherstellen dass Input-Text immer über Placeholder liegt */
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+textarea {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+input[type="text"]::placeholder,
+input[type="tel"]::placeholder,
+input[type="email"]::placeholder,
+input[type="number"]::placeholder,
+input[type="password"]::placeholder,
+textarea::placeholder {
+  position: relative !important;
+  z-index: 0 !important;
+}
+
+/* Stärkerer Kontrast für bessere Lesbarkeit */
+@media (max-width: 768px) {
+  .unified-form-input,
+  .unified-form-textarea {
+    border-width: 2px !important;
+    font-weight: 500 !important;
+  }
+}

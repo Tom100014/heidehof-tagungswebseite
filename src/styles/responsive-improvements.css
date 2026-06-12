@@ -1,0 +1,360 @@
+
+/* Professional Mobile Optimizations - All Devices */
+
+/* Root Typography System for Professional Mobile Design */
+:root {
+  /* Mobile-First Typography Scale */
+  --mobile-text-xs: 0.75rem;     /* 12px */
+  --mobile-text-sm: 0.875rem;    /* 14px */
+  --mobile-text-base: 1rem;      /* 16px - minimum for readability */
+  --mobile-text-lg: 1.125rem;    /* 18px */
+  --mobile-text-xl: 1.25rem;     /* 20px */
+  --mobile-text-2xl: 1.5rem;     /* 24px */
+  
+  /* Professional Touch Target Sizes */
+  --touch-target-minimum: 44px;
+  --touch-target-comfortable: 48px;
+  --touch-target-large: 56px;
+  
+  /* Safe Area Padding */
+  --safe-area-padding: max(1rem, env(safe-area-inset-left, 1rem));
+  --safe-area-bottom: max(1rem, env(safe-area-inset-bottom, 1rem));
+  --safe-area-top: max(1rem, env(safe-area-inset-top, 1rem));
+}
+
+/* Professional Container System */
+.responsive-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--safe-area-padding);
+}
+
+/* Professional Mobile Optimizations (320px - 640px) */
+@media (max-width: 640px) {
+  .responsive-container {
+    padding: 0 max(0.75rem, env(safe-area-inset-left, 0.75rem));
+  }
+  
+  /* Anti-zoom: inputs must be at least 16px to prevent iOS zoom */
+  input, select, textarea {
+    font-size: 16px !important;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Prevent double-tap zoom on interactive elements */
+  button, [role="button"], a[href] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Large Interactive Elements */
+  .primary-button,
+  .submit-button,
+  .checkout-button {
+    min-height: var(--touch-target-large) !important;
+    font-size: var(--mobile-text-base) !important;
+    font-weight: 600 !important;
+  }
+  
+  /* Professional Spacing System */
+  .space-y-4 > * + * { margin-top: 1rem !important; }
+  .space-y-6 > * + * { margin-top: 1.5rem !important; }
+  .space-y-8 > * + * { margin-top: 2rem !important; }
+  
+  /* Professional Card Design */
+  .card {
+    background: hsl(var(--card)) !important;
+    border: 1px solid hsl(var(--border)) !important;
+    border-radius: 12px !important;
+    padding: 1.25rem !important;
+    box-shadow: 0 4px 12px hsl(var(--shadow) / 0.15) !important;
+    backdrop-filter: none !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  /* Form Elements Professional Design */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  textarea,
+  select {
+    font-size: var(--mobile-text-base) !important; /* Prevents zoom on iOS */
+    padding: 0.875rem 1rem !important;
+    border-radius: 8px !important;
+    border: 2px solid hsl(var(--border)) !important;
+    background: hsl(var(--background)) !important;
+    line-height: 1.5 !important;
+  }
+  
+  /* Focus States for Accessibility */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 3px solid hsl(var(--primary)) !important;
+    outline-offset: 2px !important;
+  }
+}
+
+/* Professional Tablet Optimizations (640px - 1024px) */
+@media (min-width: 640px) and (max-width: 1024px) {
+  .responsive-container {
+    padding: 0 max(1.5rem, env(safe-area-inset-left, 1.5rem));
+  }
+  
+  
+  /* Professional Grid Layouts */
+  .tablet-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    align-items: start;
+  }
+  
+  .tablet-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    align-items: start;
+  }
+  
+  /* Tablet touch: prevent double-tap zoom only */
+  button, [role="button"], a[href] {
+    touch-action: manipulation;
+  }
+  
+  /* Card Adjustments for Tablet */
+  .card {
+    padding: 1.5rem !important;
+    border-radius: 12px !important;
+  }
+}
+
+/* Professional Desktop Optimizations (1024px+) */
+@media (min-width: 1024px) {
+  .responsive-container {
+    padding: 0 2rem;
+  }
+  
+  /* Professional Desktop Grid Layouts */
+  .desktop-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+  
+  .desktop-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+  
+  .desktop-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+  
+  /* Desktop Touch Targets (for touch-enabled desktops) */
+  .touch-device button,
+  .touch-device [role="button"],
+  .touch-device a[href] {
+    min-height: 40px !important;
+    padding: 0.5rem 1rem !important;
+  }
+}
+
+/* Professional Form System */
+.responsive-form {
+  width: 100%;
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 0 var(--safe-area-padding);
+}
+
+@media (max-width: 640px) {
+  .responsive-form {
+    max-width: 100%;
+    margin: 0;
+    padding: 0 max(1rem, env(safe-area-inset-left, 1rem));
+  }
+  
+  /* Form Field Spacing */
+  .form-field {
+    margin-bottom: 1.25rem !important;
+  }
+  
+  /* Form Labels */
+  .form-label {
+    font-size: var(--mobile-text-sm) !important;
+    font-weight: 600 !important;
+    margin-bottom: 0.5rem !important;
+    display: block !important;
+  }
+  
+  /* Form Error Messages */
+  .form-error {
+    font-size: var(--mobile-text-xs) !important;
+    margin-top: 0.25rem !important;
+    color: hsl(var(--destructive)) !important;
+  }
+}
+
+/* Professional Modal and Overlay System */
+.responsive-overlay {
+  background: hsl(var(--background) / 0.85) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+.responsive-modal {
+  background: hsl(var(--card)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 12px 40px hsl(var(--shadow) / 0.25) !important;
+  backdrop-filter: none !important;
+}
+
+@media (max-width: 640px) {
+  .responsive-modal {
+    margin: max(1rem, env(safe-area-inset-top, 1rem)) max(1rem, env(safe-area-inset-right, 1rem)) max(1rem, env(safe-area-inset-bottom, 1rem)) max(1rem, env(safe-area-inset-left, 1rem)) !important;
+    border-radius: 12px !important;
+    max-height: calc(100vh - 2rem - var(--safe-area-top) - var(--safe-area-bottom)) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  
+  /* Modal Content Padding */
+  .modal-content {
+    padding: 1.5rem !important;
+  }
+  
+  /* Modal Header */
+  .modal-header {
+    padding-bottom: 1rem !important;
+    border-bottom: 1px solid hsl(var(--border)) !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  /* Modal Footer */
+  .modal-footer {
+    padding-top: 1rem !important;
+    border-top: 1px solid hsl(var(--border)) !important;
+    margin-top: 1rem !important;
+  }
+}
+
+/* Professional Navigation System */
+.responsive-nav {
+  background: hsl(var(--background)) !important;
+  border-top: 1px solid hsl(var(--border)) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  box-shadow: 0 -4px 16px hsl(var(--shadow) / 0.15) !important;
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom, 0.5rem)) !important;
+}
+
+@media (max-width: 640px) {
+  /* Bottom Navigation Safe Area */
+  .bottom-navigation {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom, 1rem)) !important;
+    min-height: calc(60px + var(--safe-area-bottom)) !important;
+  }
+  
+  /* Header Safe Area */
+  .header-navigation {
+    padding-top: max(0.5rem, env(safe-area-inset-top, 0.5rem)) !important;
+    min-height: calc(60px + var(--safe-area-top)) !important;
+  }
+  
+  /* Navigation Items */
+  .nav-item {
+    min-height: var(--touch-target-minimum) !important;
+    min-width: var(--touch-target-minimum) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0.75rem !important;
+    touch-action: manipulation !important;
+  }
+  
+  /* Navigation Text */
+  .nav-text {
+    font-size: var(--mobile-text-xs) !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+  }
+}
+
+/* Scrollbare Bereiche */
+.responsive-scroll {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--muted)) transparent;
+}
+
+.responsive-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.responsive-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.responsive-scroll::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 3px;
+}
+
+.responsive-scroll::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
+
+/* Verbesserte Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .card,
+  .responsive-modal,
+  input,
+  textarea,
+  select,
+  button {
+    border-width: 2px !important;
+  }
+}
+
+/* Dark Mode Optimierungen */
+@media (prefers-color-scheme: dark) {
+  .responsive-container {
+    color: hsl(var(--foreground)) !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .responsive-container {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+  
+  .card {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+  }
+}

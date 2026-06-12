@@ -1,0 +1,376 @@
+/* Admin Mobile Optimizations */
+
+/* Mobile Admin Layout */
+@media (max-width: 768px) {
+  /* Admin Container */
+  .admin-mobile-container {
+    padding: 0.75rem !important;
+    padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    min-height: calc(100dvh - 60px) !important;
+  }
+
+  /* Admin Cards */
+  .admin-card-mobile {
+    border-radius: 0.75rem !important;
+    padding: 0.875rem !important;
+    margin-bottom: 0.75rem !important;
+    box-shadow: 0 2px 8px hsl(var(--shadow) / 0.1) !important;
+  }
+
+  /* Admin Buttons */
+  .admin-button-mobile {
+    min-height: 48px !important;
+    min-width: 48px !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 0.875rem !important;
+    border-radius: 0.75rem !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  /* Admin Tables - Mobile Cards */
+  .admin-table-mobile {
+    display: none !important;
+  }
+
+  .admin-card-list-mobile {
+    display: block !important;
+    space-y: 0.75rem !important;
+  }
+
+  /* Admin Forms */
+  .admin-form-mobile {
+    padding: 1rem !important;
+    border-radius: 0.75rem !important;
+    background: hsl(var(--card)) !important;
+    border: 1px solid hsl(var(--border)) !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .admin-form-mobile input,
+  .admin-form-mobile textarea,
+  .admin-form-mobile select {
+    font-size: 16px !important;
+    min-height: 48px !important;
+    padding: 0.75rem 1rem !important;
+    border-radius: 0.5rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  /* Admin Navigation */
+  .admin-nav-mobile {
+    padding: 0.75rem 1rem !important;
+    border-bottom: 1px solid hsl(var(--border)) !important;
+    background: hsl(var(--background)) !important;
+    backdrop-filter: blur(8px) !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 40 !important;
+  }
+
+  /* Admin Headers */
+  .admin-header-mobile {
+    margin-bottom: 1rem !important;
+  }
+
+  .admin-header-mobile h1 {
+    font-size: 1.5rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .admin-header-mobile h2 {
+    font-size: 1.25rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  /* Admin Stats Grid - 3 Spalten Mobile */
+  .admin-stats-mobile {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important; /* 3 Spalten statt 2 */
+    gap: 0.5rem !important; /* Kleinerer Gap für 3 Spalten */
+    margin-bottom: 1rem !important;
+  }
+
+  .admin-stat-card-mobile {
+    padding: 0.625rem !important; /* Kleineres Padding für 3 Spalten */
+    text-align: center !important;
+    border-radius: 0.625rem !important;
+    background: hsl(var(--card)) !important;
+    border: 1px solid hsl(var(--border)) !important;
+    min-width: 0 !important; /* Verhindert Overflow */
+  }
+
+  .admin-stat-card-mobile .stat-value {
+    font-size: 1.25rem !important; /* Kleinere Zahlen für 3 Spalten */
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  .admin-stat-card-mobile .stat-label {
+    font-size: 0.625rem !important; /* Kleinere Labels */
+    color: hsl(var(--muted-foreground)) !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important; /* Verhindert Zeilenumbruch */
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* Admin Tabs */
+  .admin-tabs-mobile {
+    margin-bottom: 1rem !important;
+  }
+
+  .admin-tabs-mobile .tabs-list {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)) !important;
+    height: auto !important;
+    padding: 0.25rem !important;
+    gap: 0.25rem !important;
+  }
+
+  .admin-tabs-mobile .tabs-trigger {
+    flex-direction: column !important;
+    gap: 0.25rem !important;
+    padding: 0.5rem 0.25rem !important;
+    min-height: 48px !important;
+    font-size: 0.75rem !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Admin Search */
+  .admin-search-mobile {
+    margin-bottom: 1rem !important;
+  }
+
+  .admin-search-mobile input {
+    font-size: 16px !important;
+    min-height: 48px !important;
+    padding: 0.75rem 1rem 0.75rem 2.5rem !important;
+    border-radius: 0.75rem !important;
+  }
+
+  /* Admin Filters */
+  .admin-filters-mobile {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .admin-filter-button-mobile {
+    min-height: 40px !important;
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.875rem !important;
+    border-radius: 0.5rem !important;
+    flex: 1 !important;
+    white-space: nowrap !important;
+  }
+
+  /* Admin Actions */
+  .admin-actions-mobile {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    padding: 1rem !important;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px)) !important;
+    background: hsl(var(--background) / 0.95) !important;
+    backdrop-filter: blur(8px) !important;
+    border-top: 1px solid hsl(var(--border)) !important;
+    z-index: 30 !important;
+  }
+
+  .admin-actions-mobile .action-group {
+    display: flex !important;
+    gap: 0.75rem !important;
+  }
+
+  .admin-actions-mobile .action-group > * {
+    flex: 1 !important;
+    min-height: 48px !important;
+  }
+
+  /* Admin Modals/Sheets */
+  .admin-modal-mobile {
+    margin: 0.5rem !important;
+    border-radius: 1rem !important;
+    max-height: calc(100dvh - 1rem) !important;
+    overflow-y: auto !important;
+  }
+
+  .admin-sheet-mobile {
+    border-radius: 1rem 1rem 0 0 !important;
+    max-height: 90vh !important;
+  }
+
+  /* Admin Loading States */
+  .admin-loading-mobile {
+    padding: 2rem 1rem !important;
+    text-align: center !important;
+  }
+
+  .admin-loading-skeleton-mobile {
+    height: 80px !important;
+    border-radius: 0.75rem !important;
+    background: hsl(var(--muted) / 0.3) !important;
+    margin-bottom: 0.75rem !important;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
+  }
+
+  /* Admin Empty States */
+  .admin-empty-mobile {
+    padding: 3rem 1rem !important;
+    text-align: center !important;
+  }
+
+  .admin-empty-mobile .empty-icon {
+    width: 4rem !important;
+    height: 4rem !important;
+    margin: 0 auto 1rem auto !important;
+    color: hsl(var(--muted-foreground)) !important;
+  }
+
+  .admin-empty-mobile .empty-text {
+    font-size: 1rem !important;
+    color: hsl(var(--muted-foreground)) !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .admin-empty-mobile .empty-subtext {
+    font-size: 0.875rem !important;
+    color: hsl(var(--muted-foreground) / 0.7) !important;
+  }
+}
+
+/* Tablet Optimizations */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .admin-tablet-container {
+    padding: 1rem 1.5rem !important;
+    padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .admin-tablet-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+
+  .admin-tablet-stats {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 1rem !important;
+  }
+
+  .admin-tablet-button {
+    min-height: 44px !important;
+    padding: 0.625rem 1rem !important;
+  }
+
+  /* Tablet Stats Grid - 3 Spalten mit mehr Spacing */
+  .admin-stats-mobile {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1rem !important;
+  }
+  
+  .admin-stat-card-mobile {
+    padding: 1rem !important;
+  }
+  
+  .admin-stat-card-mobile .stat-value {
+    font-size: 1.75rem !important;
+  }
+  
+  .admin-stat-card-mobile .stat-label {
+    font-size: 0.875rem !important;
+  }
+}
+
+/* Safe Area Support */
+.admin-safe-area-top {
+  padding-top: env(safe-area-inset-top, 0px) !important;
+}
+
+/* iOS-specific TopBar Safe Area */
+.admin-topbar-safe-mobile {
+  padding-top: max(env(safe-area-inset-top), 4rem) !important; /* 64px base */
+}
+
+@supports (padding: max(0px)) {
+  /* iPhone 14 Pro, 15, 16 mit Dynamic Island */
+  @media screen and (min-width: 390px) and (max-width: 450px) and (min-height: 844px) {
+    .admin-topbar-safe-mobile {
+      padding-top: max(env(safe-area-inset-top), 5rem) !important; /* 80px für Dynamic Island */
+    }
+  }
+}
+
+.admin-safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px) !important;
+}
+
+/* iOS-specific TopBar Safe Area */
+.admin-topbar-safe-mobile {
+  padding-top: max(env(safe-area-inset-top), 3rem) !important;
+}
+
+@supports (padding: max(0px)) {
+  /* iPhone 14 Pro, 15, 16 with Dynamic Island */
+  @media screen and (min-width: 390px) and (max-width: 450px) and (min-height: 844px) {
+    .admin-topbar-safe-mobile {
+      padding-top: max(env(safe-area-inset-top), 4rem) !important;
+    }
+  }
+  
+  /* Landscape mode - reduce padding */
+  @media (max-width: 768px) and (orientation: landscape) {
+    .admin-topbar-safe-mobile {
+      padding-top: max(env(safe-area-inset-top), 2rem) !important;
+    }
+  }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  .admin-loading-skeleton-mobile {
+    animation: none !important;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .admin-card-mobile,
+  .admin-form-mobile,
+  .admin-stat-card-mobile {
+    border-width: 2px !important;
+  }
+}
+
+/* iOS Hero Section Safe Area */
+@media (max-width: 768px) {
+  .admin-hero-ios-safe {
+    padding-top: env(safe-area-inset-top, 0px) !important;
+  }
+  
+  .ios-dynamic-island .admin-hero-ios-safe {
+    padding-top: calc(env(safe-area-inset-top, 54px) + 1rem) !important;
+  }
+  
+  .ios-notch .admin-hero-ios-safe {
+    padding-top: calc(env(safe-area-inset-top, 44px) + 0.75rem) !important;
+  }
+}
+
+/* Focus States for Better Accessibility */
+.admin-button-mobile:focus,
+.admin-filter-button-mobile:focus {
+  outline: 2px solid hsl(var(--ring)) !important;
+  outline-offset: 2px !important;
+}
+
+/* Dark Mode Optimizations */
+@media (prefers-color-scheme: dark) {
+  .admin-mobile-container {
+    background: hsl(var(--background)) !important;
+  }
+}

@@ -1,0 +1,64 @@
+project_id = "qkwgqdyamomvaihbofbw"
+
+[functions.forward-category-request]
+verify_jwt = false
+
+[functions.sync-wellness-to-clara]
+verify_jwt = false
+
+[functions.match-wellness]
+verify_jwt = false
+
+[functions.cartesia-phone-handler]
+verify_jwt = false
+
+[functions.cartesia-tools-sync]
+verify_jwt = false
+
+[functions.cartesia-phone-agent]
+verify_jwt = true
+
+[functions.cartesia-register-context]
+verify_jwt = false
+
+[functions.cartesia-start-call]
+verify_jwt = false
+
+[functions.update-cartesia-prompt]
+verify_jwt = false
+
+[functions.cartesia-agent-token]
+verify_jwt = false
+
+[functions.beauty-availability]
+verify_jwt = false
+
+[functions.beauty-book]
+verify_jwt = false
+
+[functions.mews-sync]
+verify_jwt = false
+
+[functions.mews-webhook]
+verify_jwt = false
+
+[functions.email-track]
+verify_jwt = false
+
+[functions.lead-inbound]
+verify_jwt = false
+
+[functions.resend-webhook]
+verify_jwt = false
+
+[functions.lead-sequence-tick]
+verify_jwt = false
+
+[functions.lead-score]
+verify_jwt = false
+
+[functions.lead-enrich]
+verify_jwt = false
+
+[functions.elevenlabs-webhook]
+verify_jwt = false
