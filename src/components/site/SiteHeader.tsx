@@ -58,7 +58,7 @@ const MobileDrawer = ({ open, onClose }: { open: boolean; onClose: () => void })
       <div className="relative h-full flex flex-col">
         <div className="flex items-center justify-between px-5 h-20 border-b border-gold/10">
           <Link to="/" onClick={onClose} className="flex items-center gap-2">
-            <img src="/heidehof/logo-white.svg" alt="" className="h-8 w-auto" />
+            <img src={`${import.meta.env.BASE_URL}heidehof/logo-white.svg`} alt="" className="h-8 w-auto" />
             <span className="text-[10px] uppercase tracking-[0.35em] text-white/85 font-serif">
               Der Heidehof
             </span>
@@ -162,7 +162,7 @@ export const SiteHeader = ({ transparentOnTop = true }: { transparentOnTop?: boo
               aria-label="Hotel Der Heidehof – Conference & Spa"
             >
               <img
-                src="/heidehof/logo-white.svg"
+                src={`${import.meta.env.BASE_URL}heidehof/logo-white.svg`}
                 alt=""
                 className={cn(
                   "transition-all duration-500 w-auto shrink-0 block",
